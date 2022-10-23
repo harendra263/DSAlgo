@@ -9,7 +9,7 @@ class Solution:
                 counter.pop(c)
             if len(set(counter.values())) == 1: return True
             counter[c] += 1
-        
+
         return False
     
 
@@ -20,7 +20,7 @@ class Solution:
         for i in word:
             if i in dct: dct[i] += 1
             else: dct[i] = 1
-        
+
         for i in word:
             dct[i] -= 1
             if dct[i] == 0:
@@ -30,5 +30,5 @@ class Solution:
             else:
                 if len(set(dct.values())) == 1: return True
                 dct[i] += 1
-        
+
         return False

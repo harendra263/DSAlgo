@@ -36,9 +36,7 @@ class LinkedList(object):
 
     def find(self, key):
         curr = self.head
-        while curr:
-            if curr.key == key:
-                break
+        while curr and curr.key != key:
             curr = curr.next
         return curr
 
@@ -67,8 +65,7 @@ class MyHashSet(object):
         :rtype: void
         """
         l = self.__data[key % len(self.__data)]
-        node = l.find(key)
-        if node:
+        if node := l.find(key):
             l.delete(node)
 
     def contains(self, key):

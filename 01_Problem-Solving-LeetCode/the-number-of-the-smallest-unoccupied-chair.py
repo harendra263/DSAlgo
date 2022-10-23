@@ -13,8 +13,7 @@ class Solution(object):
         """
         events = []
         for i, (s, e) in enumerate(times): 
-            events.append((s, True, i))
-            events.append((e, False, i))
+            events.extend(((s, True, i), (e, False, i)))
         events.sort()
 
         lookup = {}

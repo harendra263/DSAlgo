@@ -66,13 +66,13 @@ The depth of any character in the VPS is the ( number of left brackets before it
 class Solution:
     def maxDepth(self, s: str) -> int:
         count = 0
-        max_val = 0 
+        max_val = 0
         for i in s:
             if i == "(":
                 count +=1
                 if count> max_val:
                     max_val = count
-            if i == ")":
+            elif i == ")":
                 count -= 1
         return max_val
     
@@ -116,5 +116,5 @@ class Solution:
                 result = max(result, current)
             elif letter == ")":
                 current -= 1
-            
+
         return result

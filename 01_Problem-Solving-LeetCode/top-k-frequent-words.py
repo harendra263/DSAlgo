@@ -14,16 +14,11 @@ class Solution(object):
         :rtype: List[str]
         """
         counts = collections.Counter(words)
-        p = []
-        for key, val in counts.iteritems():
-            p.append((-val, key))
+        p = [(-val, key) for key, val in counts.iteritems()]
         self.kthElement(p, k-1)
 
-        result = []
         sorted_p = sorted(p[:k])
-        for i in xrange(k):
-            result.append(sorted_p[i][1])
-        return result
+        return [sorted_p[i][1] for i in xrange(k)]
 
     def kthElement(self, nums, k):  # O(n) on average
         def PartitionAroundPivot(left, right, pivot_idx, nums):
@@ -99,8 +94,7 @@ class Solution3(object):
             buckets[count].append(word)
         pairs = []
         for i in reversed(xrange(len(words))):
-            for word in buckets[i]:
-                pairs.append((-i, word))
+            pairs.extend((-i, word) for word in buckets[i])
             if len(pairs) >= k:
                 break
         pairs.sort()

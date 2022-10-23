@@ -71,15 +71,13 @@ class Solution(object):
                     merged.append([a[start], b[start], a[height]])  # |a|bb
                 a_idx += 1
         else:  # a[end] > b[end].
-            if a[height] >= b[height]:  # aaaa
-                b_idx += 1              # abba
-            else:
+            if a[height] < b[height]:
                 #    |bb|
                 # |a||bb|a
                 if a[start] != b[start]:
                     merged.append([a[start], b[start], a[height]])
                 a[start] = b[end]
                 merged.append(b)
-                b_idx += 1
+            b_idx += 1              # abba
         return a_idx, b_idx
 

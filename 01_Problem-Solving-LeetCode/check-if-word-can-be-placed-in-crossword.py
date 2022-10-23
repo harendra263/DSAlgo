@@ -9,11 +9,15 @@ class Solution(object):
         :rtype: bool
         """
         def get_val(mat, i, j, transposed):
-            return mat[i][j] if not transposed else mat[j][i]
+            return mat[j][i] if transposed else mat[i][j]
 
         def get_vecs(mat, transposed):
-            for i in xrange(len(mat) if not transposed else len(mat[0])):
-                yield (get_val(mat, i, j, transposed) for j in xrange(len(mat[0]) if not transposed else len(mat)))
+            for i in xrange(len(mat[0]) if transposed else len(mat)):
+                yield (
+                    get_val(mat, i, j, transposed)
+                    for j in xrange(len(mat) if transposed else len(mat[0]))
+                )
+
 
         for direction in (lambda x: iter(x), reversed):
             for transposed in xrange(2):

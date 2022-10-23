@@ -11,8 +11,8 @@ class Solution(object):
         :rtype: float
         """
         directions = \
-            [[ 1, 2], [ 1, -2], [ 2, 1], [ 2, -1], \
-             [-1, 2], [-1, -2], [-2, 1], [-2, -1]]
+                [[ 1, 2], [ 1, -2], [ 2, 1], [ 2, -1], \
+                 [-1, 2], [-1, -2], [-2, 1], [-2, -1]]
         dp = [[[1 for _ in xrange(N)] for _ in xrange(N)] for _ in xrange(2)]
         for step in xrange(1, K+1):
             for i in xrange(N):

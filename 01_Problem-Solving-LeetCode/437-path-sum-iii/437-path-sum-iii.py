@@ -14,7 +14,12 @@ class Solution:
             res += solve(root.left, target - root.val)
             res += solve(root.right, target - root.val)
             return res
-        
-        if not root: return 0
-        return solve(root, targetSum) + self.pathSum(root.left, targetSum) + self.pathSum(root.right, targetSum)
+
+        return (
+            solve(root, targetSum)
+            + self.pathSum(root.left, targetSum)
+            + self.pathSum(root.right, targetSum)
+            if root
+            else 0
+        )
     

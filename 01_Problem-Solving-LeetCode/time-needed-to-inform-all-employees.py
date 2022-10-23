@@ -27,8 +27,7 @@ class Solution(object):
             result = max(result, curr)
             if node not in children:
                 continue
-            for c in children[node]:
-                stk.append((c, curr))
+            stk.extend((c, curr) for c in children[node])
         return result
 
     

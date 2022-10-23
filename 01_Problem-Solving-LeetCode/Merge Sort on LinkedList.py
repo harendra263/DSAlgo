@@ -31,13 +31,13 @@ class LinkedList:
 		
 	def sortedMerge(self, a, b):
 		result = None
-		
+
 		# Base cases
-		if a == None:
+		if a is None:
 			return b
-		if b == None:
+		if b is None:
 			return a
-			
+
 		# pick either a or b and recur..
 		if a.data <= b.data:
 			result = a
@@ -50,7 +50,7 @@ class LinkedList:
 	def mergeSort(self, h):
 		
 		# Base case if head is None
-		if h == None or h.next == None:
+		if h is None or h.next is None:
 			return h
 
 		# get the middle of the list
@@ -62,18 +62,16 @@ class LinkedList:
 
 		# Apply mergeSort on left list
 		left = self.mergeSort(h)
-		
+
 		# Apply mergeSort on right list
 		right = self.mergeSort(nexttomiddle)
 
-		# Merge the left and right lists
-		sortedlist = self.sortedMerge(left, right)
-		return sortedlist
+		return self.sortedMerge(left, right)
 	
 	# Utility function to get the middle
 	# of the linked list
 	def getMiddle(self, head):
-		if (head == None):
+		if head is None:
 			return head
 
 		slow = head
@@ -83,7 +81,7 @@ class LinkedList:
 			fast.next.next != None):
 			slow = slow.next
 			fast = fast.next.next
-			
+
 		return slow
 		
 # Utility function to print the linked list

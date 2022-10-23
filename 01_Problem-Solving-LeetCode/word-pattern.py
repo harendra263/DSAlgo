@@ -25,11 +25,7 @@ class Solution(object):
         return True
 
     def wordCount(self, str):
-        cnt = 1 if str else 0
-        for c in str:
-            if c == ' ':
-                cnt += 1
-        return cnt
+        return (1 if str else 0) + sum(c == ' ' for c in str)
 
     # Generate a word at a time without saving all the words.
     def wordGenerator(self, str):

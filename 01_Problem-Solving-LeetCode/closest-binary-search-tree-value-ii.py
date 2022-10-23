@@ -60,6 +60,8 @@ class Solution2(object):
         :rtype: List[int]
         """
         # Helper class to make a stack to the next node.
+
+
         class BSTIterator:
             # @param root, a binary search tree's root node
             def __init__(self, stack, child1, child2):
@@ -80,14 +82,12 @@ class Solution2(object):
                 elif self.stack:
                     prev = self.cur
                     node = self.stack.pop()
-                    while node:
-                        if self.child2(node) is prev:
-                            break
-                        else:
-                            prev = node
-                            node = self.stack.pop() if self.stack else None
+                    while node and self.child2(node) is not prev:
+                        prev = node
+                        node = self.stack.pop() if self.stack else None
                 self.cur = node
                 return node
+
 
         # Build the stack to the closet node.
         stack = []

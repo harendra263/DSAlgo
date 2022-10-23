@@ -73,7 +73,7 @@ class Solution2(object):
             elif right != -1:
                 return right+1
             return -1
-        
+
         result = [0]
         dfs(root, p, q, result)
         return result[0]

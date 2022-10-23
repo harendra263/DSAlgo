@@ -19,7 +19,7 @@ class Solution(object):
                     while i < len(s) and s[start] == s[i]:
                         i += 1
                     if i-start >= 3:
-                        s = s[0:start]+s[i:]
+                        s = s[:start] + s[i:]
                         break
                 else:
                     break
@@ -33,8 +33,8 @@ class Solution(object):
             result = float("inf")
             for i in xrange(len(hand)):
                 for j in xrange(len(board)+1):
-                    next_board = shrink(board[0:j] + hand[i:i+1] + board[j:])
-                    next_hand = hand[0:i] + hand[i+1:]
+                    next_board = shrink(board[:j] + hand[i:i+1] + board[j:])
+                    next_hand = hand[:i] + hand[i+1:]
                     result = min(result, findMinStepHelper(next_board, next_hand, lookup) + 1)
             lookup[tuple(board)][tuple(hand)] = result
             return result
@@ -83,8 +83,8 @@ class Solution_TLE(object):
             result = float("inf")
             for i in xrange(len(hand)):
                 for j in xrange(len(board)+1):
-                    next_board = shrink(board[0:j] + hand[i:i+1] + board[j:])
-                    next_hand = hand[0:i] + hand[i+1:]
+                    next_board = shrink(board[:j] + hand[i:i+1] + board[j:])
+                    next_hand = hand[:i] + hand[i+1:]
                     result = min(result, findMinStepHelper(next_board, next_hand, lookup) + 1)
             lookup[tuple(board)][tuple(hand)] = result
             return result
@@ -129,8 +129,8 @@ class Solution_GREEDY_ACCEPT_BUT_NOT_PROVED(object):
             result = float("inf")
             for i in xrange(len(hand)):
                 for j in xrange(len(board)+1):
-                    next_board = shrink(board[0:j] + hand[i:i+1] + board[j:])
-                    next_hand = hand[0:i] + hand[i+1:]
+                    next_board = shrink(board[:j] + hand[i:i+1] + board[j:])
+                    next_hand = hand[:i] + hand[i+1:]
                     result = min(result, findMinStepHelper(next_board, next_hand, lookup) + 1)
             return result
 
@@ -154,19 +154,19 @@ class Solution_GREEDY_ACCEPT_BUT_NOT_PROVED(object):
                         break
 
                     if k < len(board) - 1 and board[k] == board[k+1]:
-                        next_board = shrink(board[0:k] + board[k+2:])
-                        next_hand = hand[0:i] + hand[i+1:]
+                        next_board = shrink(board[:k] + board[k+2:])
+                        next_hand = hand[:i] + hand[i+1:]
                         result = min(result, findMinStepHelper(next_board, next_hand, lookup) + 1)
                         k += 1
                     elif i > 0 and hand[i] == hand[i-1]:
-                        next_board = shrink(board[0:k] + board[k+1:])
-                        next_hand = hand[0:i-1] + hand[i+1:]
+                        next_board = shrink(board[:k] + board[k+1:])
+                        next_hand = hand[:i-1] + hand[i+1:]
                         result = min(result, findMinStepHelper(next_board, next_hand, lookup) + 2)
                     j = k+1
 
             lookup[tuple(board)][tuple(hand)] = result
             return result
-        
+
         board, hand = list(board), list(hand)
         hand.sort()
         result = findMinStepHelper(board, hand, collections.defaultdict(dict))
@@ -223,13 +223,13 @@ class Solution_WRONG_GREEDY_AND_NOT_ACCEPT_NOW(object):
                         break
 
                     if k < len(board) - 1 and board[k] == board[k+1]:
-                        next_board = shrink(board[0:k] + board[k+2:])
-                        next_hand = hand[0:i] + hand[i+1:]
+                        next_board = shrink(board[:k] + board[k+2:])
+                        next_hand = hand[:i] + hand[i+1:]
                         result = min(result, findMinStepHelper(next_board, next_hand, lookup) + 1)
                         k += 1
                     elif i > 0 and hand[i] == hand[i-1]:
-                        next_board = shrink(board[0:k] + board[k+1:])
-                        next_hand = hand[0:i-1] + hand[i+1:]
+                        next_board = shrink(board[:k] + board[k+1:])
+                        next_hand = hand[:i-1] + hand[i+1:]
                         result = min(result, findMinStepHelper(next_board, next_hand, lookup) + 2)
                     j = k+1
 

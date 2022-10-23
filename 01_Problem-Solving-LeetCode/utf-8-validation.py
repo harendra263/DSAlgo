@@ -18,9 +18,9 @@ class Solution(object):
                     count = 3
                 elif (c >> 7):
                     return False
-            else:
-                if (c >> 6) != 0b10:
-                    return False
+            elif c >> 6 == 0b10:
                 count -= 1
+            else:
+                return False
         return count == 0
 

@@ -1,10 +1,9 @@
 # Swap two variables without using another variable
-a = 10
 b = 5
 
-a = a + b
+a = 10 + b
 b = a - b
-a = a - b
+a -= b
 
 print(f"a = {a}")
 print(f"b = {b}")

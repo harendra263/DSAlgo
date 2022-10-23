@@ -42,9 +42,9 @@ class Solution(object):
         C, c = divmod(width, sideLength)
         assert(R <= C)
         area_counts = [(r*c, (R+1)*(C+1)), \
-                       (r*(sideLength-c), (R+1)*C), \
-                       ((sideLength-r)*c, R*(C+1)), \
-                       ((sideLength-r)*(sideLength-c), R*C)]
+                           (r*(sideLength-c), (R+1)*C), \
+                           ((sideLength-r)*c, R*(C+1)), \
+                           ((sideLength-r)*(sideLength-c), R*C)]
         result = 0
         for area, count in area_counts:
             area = min(maxOnes, area)

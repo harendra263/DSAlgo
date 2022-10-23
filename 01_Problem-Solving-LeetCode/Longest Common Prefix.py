@@ -4,10 +4,10 @@ class Solution(object):
             return ""
         if len(strs) ==1:
             return strs[0]
-        
+
         start = strs[0]
         result  = ""
-        for i in range(0,len(strs)):
+        for i in range(len(strs)):
             temp = strs[i]
             if start != temp:
                 a = min(start,temp)

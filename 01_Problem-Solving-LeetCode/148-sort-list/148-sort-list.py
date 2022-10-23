@@ -19,7 +19,7 @@ class Solution:
         while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
-        
+
         return slow
     
     def mergeList(self, l1, l2):

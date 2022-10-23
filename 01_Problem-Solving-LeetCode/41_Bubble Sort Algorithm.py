@@ -1,5 +1,5 @@
 n = int(input("How many number you want in the list: "))
-a = [int(input("Enter an element to add in the list: ")) for i in range(n) ]
+a = [int(input("Enter an element to add in the list: ")) for _ in range(n)]
 
 
 print(a)

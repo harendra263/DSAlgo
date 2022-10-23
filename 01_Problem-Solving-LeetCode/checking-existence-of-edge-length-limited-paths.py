@@ -41,7 +41,7 @@ class Solution(object):
             q.append(i)
         edgeList.sort(key=lambda x: x[2])
         queries.sort(key=lambda x: x[2])
-        
+
         union_find = UnionFind(n)
         result = [False]*len(queries)
         curr = 0

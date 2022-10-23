@@ -38,9 +38,7 @@ class Solution2(object):
                 continue
             while j < i-dist:
                 j += 1
-            while j <= min(i+dist, len(team)-1):
-                if team[j] == 0:
-                    break
+            while j <= min(i + dist, len(team) - 1) and team[j] != 0:
                 j += 1
             if j <= min(i+dist, len(team)-1):
                 result += 1

@@ -16,7 +16,7 @@ class Solution(object):
         for right in xrange(len(s)):
             count[s[right]] -= 1
             while left < len(s) and \
-                  all(v <= len(s)//4 for v in count.itervalues()):
+                      all(v <= len(s)//4 for v in count.itervalues()):
                 result = min(result, right-left+1)
                 count[s[left]] += 1
                 left += 1

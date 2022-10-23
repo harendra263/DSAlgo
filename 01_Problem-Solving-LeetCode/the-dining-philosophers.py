@@ -21,11 +21,7 @@ class DiningPhilosophers(object):
         """
         left, right = philosopher, (philosopher+4)%5
         first, second = left, right
-        if  philosopher%2 == 0:
-            first, second = left, right
-        else:
-            first, second = right, left
-
+        first, second = (left, right) if philosopher%2 == 0 else (right, left)
         with self._l[first]:
             with self._l[second]:
                 pickLeftFork()

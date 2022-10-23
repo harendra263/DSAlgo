@@ -17,8 +17,8 @@ class Solution(object):
             for i in xrange(m):
                 for j in xrange(n):
                     dp[(moves + 1) % 2][i][j] = (((1 if (i == 0) else dp[moves % 2][i - 1][j]) + \
-                                                  (1 if (i == m - 1) else dp[moves % 2][i + 1][j])) % M + \
-                                                 ((1 if (j == 0) else dp[moves % 2][i][j - 1]) + \
-                                                  (1 if (j == n - 1) else dp[moves % 2][i][j + 1])) % M) % M
+                                                      (1 if (i == m - 1) else dp[moves % 2][i + 1][j])) % M + \
+                                                     ((1 if (j == 0) else dp[moves % 2][i][j - 1]) + \
+                                                      (1 if (j == n - 1) else dp[moves % 2][i][j + 1])) % M) % M
         return dp[N % 2][x][y]
 

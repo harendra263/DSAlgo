@@ -55,6 +55,6 @@ class Solution3(object):
         """
         result, i = 0, 1
         while not result or i != 1:  # find cycle length
-            i = (i//2 if not i%2 else n//2+(i-1)//2)
+            i = n//2+(i-1)//2 if i%2 else i//2
             result += 1
         return result

@@ -10,7 +10,7 @@ def BinarySearch(l,key):
             high = mid -1
         elif key > l[mid]:
             low = mid +1
-    if found ==True:
+    if found:
         print(f"The key {key} is found!")
     else:
         print(f"The key {key} is NOT found.")

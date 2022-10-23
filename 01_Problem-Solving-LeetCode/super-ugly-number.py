@@ -38,7 +38,7 @@ class Solution2(object):
         :type primes: List[int]
         :rtype: int
         """
-        uglies, idx, heap, ugly_set = [0] * n, [0] * len(primes), [], set([1])
+        uglies, idx, heap, ugly_set = [0] * n, [0] * len(primes), [], {1}
         uglies[0] = 1
 
         for k, p in enumerate(primes):
@@ -67,7 +67,7 @@ class Solution3(object):
         for k, p in enumerate(primes):
             heapq.heappush(heap, (p, k))
 
-        for i in xrange(1, n):
+        for _ in xrange(1, n):
             min_val, k = heap[0]
             uglies += [min_val]
 

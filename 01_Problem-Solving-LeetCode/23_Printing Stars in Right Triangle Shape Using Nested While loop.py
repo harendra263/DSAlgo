@@ -6,16 +6,15 @@
 * * * * * 
 '''
 
+
 n = int(input("Enter number of rows:  "))
 
-row= 1
-while row<=n:
+for row in range(1, n + 1):
     col = 1
     while col<=row:
         print(end="* ")
-        col = col +1
+        col += 1
     print()
-    row = row + 1
 
 
 

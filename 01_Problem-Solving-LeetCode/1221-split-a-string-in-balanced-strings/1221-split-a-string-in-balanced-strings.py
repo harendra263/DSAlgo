@@ -12,5 +12,5 @@ class Solution:
                 stack.pop()
             else:
                 stack.append(i)
-                
+
         return res

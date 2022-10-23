@@ -7,7 +7,7 @@ class Solution:
             arr[i] = maxi
             res = max(res, values[i] + i + arr[i])
             maxi = max(maxi, values[i] - i)
-        
+
 
         '''
        res = 0

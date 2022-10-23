@@ -3,7 +3,7 @@ class Solution:
         n = len(s)
         sign = '+'
         stack = []
-        
+
         i = 0
         while i < n:
             if s[i].isdigit():
@@ -14,7 +14,7 @@ class Solution:
                     i += 1
                 i -= 1
                 num = int(num)
-                
+
                 if sign == '+':
                     stack.append(num)
                 elif sign == '-':
@@ -27,9 +27,9 @@ class Solution:
                     # or can use newNum = int(stack.pop() / num)
                     # for negative numbers // will not work
                     stack.append(newNum)
-                
+
             elif s[i] != ' ':
                 sign = s[i]
             i += 1
-        
+
         return sum(stack)

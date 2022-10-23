@@ -11,4 +11,4 @@ class Solution(object):
         for x in nums: 
             result = max(result, x-prefix)
             prefix = min(prefix, x)
-        return result if result else -1
+        return result or -1

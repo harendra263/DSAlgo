@@ -6,15 +6,15 @@ class Solution:
             b = egd[1]
             adjList[a].append(b)
             adjList[b].append(a)
-        
+
         visited = {i:False for i in range(n)}
         q = [source]
         while q:
             n = len(q)
-            for i in range(n):
+            for _ in range(n):
                 node = q.pop()
                 if visited[node] == True: continue
                 visited[node] = True
                 q += adjList[node]
-        
+
         return visited[destination]

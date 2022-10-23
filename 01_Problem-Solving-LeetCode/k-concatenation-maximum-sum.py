@@ -15,7 +15,7 @@ class Solution(object):
                     curr = max(curr+x, x)
                     result = max(result, curr)
             return result
-        
+
         MOD = 10**9+7
         if k == 1:
             return max(max_sub_k_array(arr, 1), 0) % MOD

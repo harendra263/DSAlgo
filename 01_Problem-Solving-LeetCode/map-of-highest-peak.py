@@ -16,8 +16,8 @@ class Solution(object):
                 if not cell:
                     continue
                 q.append((r, c))
+        new_q = []
         while q:
-            new_q = []
             for r, c in q:
                 for dr, dc in directions:
                     nr, nc = r+dr, c+dc 
@@ -48,8 +48,8 @@ class Solution2(object):
                     continue
                 heights[r][c] = 0
                 q.append((r, c))
+        new_q = []
         while q:
-            new_q = []
             for r, c in q:
                 for dr, dc in directions:
                     nr, nc = r+dr, c+dc 

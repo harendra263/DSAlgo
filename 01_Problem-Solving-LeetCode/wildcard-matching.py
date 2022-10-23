@@ -27,7 +27,7 @@ class Solution(object):
                 assert(count <= (len(p)+1) * (len(s)+1))
                 return False
             count += 1  # used for complexity check
- 
+
         while p_ptr < len(p) and p[p_ptr] == '*':
             p_ptr += 1
             count += 1  # used for complexity check
@@ -43,7 +43,7 @@ class Solution2(object):
     # @return a boolean
     def isMatch(self, s, p):
         k = 2
-        result = [[False for j in xrange(len(p) + 1)] for i in xrange(k)]
+        result = [[False for _ in xrange(len(p) + 1)] for _ in xrange(k)]
 
         result[0][0] = True
         for i in xrange(1, len(p) + 1):
@@ -66,7 +66,7 @@ class Solution2(object):
 class Solution3(object):
     # @return a boolean
     def isMatch(self, s, p):
-        result = [[False for j in xrange(len(p) + 1)] for i in xrange(len(s) + 1)]
+        result = [[False for _ in xrange(len(p) + 1)] for _ in xrange(len(s) + 1)]
 
         result[0][0] = True
         for i in xrange(1, len(p) + 1):
@@ -91,14 +91,10 @@ class Solution4(object):
             return not s and not p
 
         if p[0] != '*':
-            if p[0] == s[0] or p[0] == '?':
-                return self.isMatch(s[1:], p[1:])
-            else:
-                return False
-        else:
-            while len(s) > 0:
-                if self.isMatch(s, p[1:]):
-                    return True
-                s = s[1:]
-            return self.isMatch(s, p[1:])
+            return self.isMatch(s[1:], p[1:]) if p[0] in [s[0], '?'] else False
+        while len(s) > 0:
+            if self.isMatch(s, p[1:]):
+                return True
+            s = s[1:]
+        return self.isMatch(s, p[1:])
 

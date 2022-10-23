@@ -6,7 +6,7 @@ class Solution:
                 countDict[i] = 1
             else:
                 countDict[i] += 1
-        
+
         res = 0
         firstOdd = False
         for i in countDict:

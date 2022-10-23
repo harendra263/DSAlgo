@@ -20,7 +20,7 @@ class Solution(object):
             else:
                 interval = str(start)
                 if start != end:
-                    interval += "->" + str(end)
+                    interval += f"->{str(end)}"
                 ranges.append(interval)
                 if i < len(nums):
                     start = end = nums[i]

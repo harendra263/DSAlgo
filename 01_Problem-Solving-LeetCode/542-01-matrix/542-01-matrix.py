@@ -3,12 +3,12 @@ class Solution:
         m = len(mat)
         n = len(mat[0])
         res = [[2**31]*n for i in range(m)]
-        
+
         def get(i, j):
             if not 0<=i<len(res) or not 0<=j<len(res[0]):
                 return 2**31
             return res[i][j]
-        
+
         for i in range(m):
             for j in range(n):
                 if mat[i][j] == 0:
@@ -26,7 +26,7 @@ class Solution:
                     res[i][j] = min(res[i][j], min(get(i+1, j), get(i, j+1)) + 1)
                 else:
                     res[i][j] = min(res[i][j], min(res[i+1][j], res[i][j+1]) + 1)
-        
+
         return res
                     
                     

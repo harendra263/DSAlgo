@@ -11,8 +11,8 @@ class Solution(object):
 
         def dfs(i, j, grid, island):
             if not (0 <= i < len(grid) and \
-                    0 <= j < len(grid[0]) and \
-                    grid[i][j] > 0):
+                        0 <= j < len(grid[0]) and \
+                        grid[i][j] > 0):
                 return False
             grid[i][j] *= -1
             island.append((i, j))

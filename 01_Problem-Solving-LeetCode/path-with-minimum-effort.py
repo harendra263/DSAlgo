@@ -77,7 +77,7 @@ class Solution2(object):
         """
         def index(n, i, j):
             return i*n + j
-    
+
         diffs = []
         for i in xrange(len(heights)):
             for j in xrange(len(heights[0])):
@@ -88,10 +88,12 @@ class Solution2(object):
         diffs.sort()
         union_find = UnionFind(len(heights)*len(heights[0]))
         for d, i, j in diffs:
-            if union_find.union_set(i, j):
-                if union_find.find_set(index(len(heights[0]), 0, 0)) == \
-                   union_find.find_set(index(len(heights[0]), len(heights)-1, len(heights[0])-1)):
-                    return d
+            if union_find.union_set(i, j) and union_find.find_set(
+                index(len(heights[0]), 0, 0)
+            ) == union_find.find_set(
+                index(len(heights[0]), len(heights) - 1, len(heights[0]) - 1)
+            ):
+                return d
         return 0
 
 
@@ -127,7 +129,7 @@ class Solution3(object):
                 if len(left) > len(right): 
                     left, right = right, left
             return False            
-        
+
 
         left, right = 0, 10**6
         while left <= right:
@@ -169,7 +171,7 @@ class Solution4(object):
                     lookup[nr][nc] = True
                     q.append((nr, nc))
             return False            
-        
+
         left, right = 0, 10**6
         while left <= right:
             mid = left + (right-left)//2
@@ -207,7 +209,7 @@ class Solution5(object):
                     lookup[nr][nc] = True
                     stk.append((nr, nc))
             return False            
-        
+
         left, right = 0, 10**6
         while left <= right:
             mid = left + (right-left)//2

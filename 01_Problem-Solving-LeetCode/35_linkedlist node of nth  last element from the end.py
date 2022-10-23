@@ -13,7 +13,7 @@ class LinkedList:
         else:
             n = self.head
             temp = self.head
-            for i in range(3):
+            for _ in range(3):
                 n = n.next
             while n is not None:
                 temp = temp.next

@@ -3,7 +3,7 @@ class Solution:
         # nums = [1,2,3,4,5,6,7,8,9,10]; k = 3
         n = len(nums)
         k = k % n
-        
+
         # Step-1
         i = 0
         j = n-k-1
@@ -12,7 +12,7 @@ class Solution:
             i += 1
             j -= 1
         # nums = [7,6,5,4,3,2,1, 8,9,10]
-        
+
         # Step-2
         # swap right k subarray with left k subarray
         i = n-k
@@ -22,7 +22,7 @@ class Solution:
             i += 1
             j -= 1
         # nums = [7,6,5,4,3,2,1, 10,9,8]
-        
+
         # Step-3
         # reverse total nums
         i = 0

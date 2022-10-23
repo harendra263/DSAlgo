@@ -20,8 +20,5 @@ class Solution(object):
                 top[2] = num
                 count += 1
 
-        if count < 3:
-            return top[0]
-
-        return top[2]
+        return top[0] if count < 3 else top[2]
 

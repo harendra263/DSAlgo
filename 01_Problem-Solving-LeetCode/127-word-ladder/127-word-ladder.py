@@ -5,23 +5,23 @@ class Solution:
         dct = {}
         for word in wordList:
             for i in range(len(word)):
-                cur = word[:i] + '*' + word[i+1:]
+                cur = f'{word[:i]}*{word[i + 1:]}'
                 if cur not in dct:
                     dct[cur] = [word]
                 else:
                     dct[cur].append(word)
-        
+
         q = collections.deque()
         visited = {beginWord}
         q.append((beginWord, 1))
         while q:
             cur, level = q.popleft()
             for i in range(len(cur)):
-                key = cur[:i] + '*' + cur[i+1:]
+                key = f'{cur[:i]}*{cur[i + 1:]}'
                 for word in dct[key]:
                     if word == endWord: return level + 1
                     if word not in visited:
                         q.append((word, level+1))
                         visited.add(word)
-                    
+
         return 0

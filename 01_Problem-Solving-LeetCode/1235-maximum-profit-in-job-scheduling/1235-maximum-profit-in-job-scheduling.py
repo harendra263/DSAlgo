@@ -5,7 +5,7 @@ class Solution:
         n = len(startTime)
         arr = [(startTime[i], endTime[i], profit[i]) for i in range(n)]
         arr.sort(key = lambda x:x[1])
-        
+
         dpEndTime = [0]
         dpProfit = [0]
         for start, end, profit in arr:

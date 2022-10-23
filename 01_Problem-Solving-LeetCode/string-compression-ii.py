@@ -19,7 +19,7 @@ class Solution(object):
         dp[0][0] = 0
         for i in xrange(1, len(s)+1):
             for j in xrange(k+1):
-                if i-1 >= 0 and j-1 >= 0:
+                if i >= 1 and j >= 1:
                     dp[i][j] = min(dp[i][j], dp[i-1][j-1])
                 keep = delete = 0
                 for m in xrange(i, len(s)+1):

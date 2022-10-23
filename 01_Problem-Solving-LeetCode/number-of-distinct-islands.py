@@ -8,12 +8,12 @@ class Solution(object):
         :rtype: int
         """
         directions = {'l':[-1,  0], 'r':[ 1,  0], \
-                      'u':[ 0,  1], 'd':[ 0, -1]}
+                          'u':[ 0,  1], 'd':[ 0, -1]}
 
         def dfs(i, j, grid, island):
             if not (0 <= i < len(grid) and \
-                    0 <= j < len(grid[0]) and \
-                    grid[i][j] > 0):
+                        0 <= j < len(grid[0]) and \
+                        grid[i][j] > 0):
                 return False
             grid[i][j] *= -1
             for k, v in directions.iteritems():

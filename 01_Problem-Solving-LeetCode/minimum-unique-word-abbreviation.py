@@ -36,7 +36,7 @@ class Solution(object):
                     abbr.append(str(i - pre + 1))
                 bits >>= 1
             return "".join(abbr)
-  
+
         diffs = []
         for word in dictionary:
             if len(word) != len(target):
@@ -75,7 +75,7 @@ class Solution2(object):
                     abbr.append(str(i - pre + 1))
                 bits >>= 1
             return "".join(abbr)
-  
+
         diffs = []
         for word in dictionary:
             if len(word) != len(target):

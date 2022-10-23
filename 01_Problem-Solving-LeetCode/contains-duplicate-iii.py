@@ -18,7 +18,7 @@ class Solution(object):
             if len(window) > k:
                 window.popitem(False)
 
-            bucket = n if not t else n // t
+            bucket = n // t if t else n
             # At most 2t items.
             for m in (window.get(bucket - 1), window.get(bucket), window.get(bucket + 1)):
                 if m is not None and abs(n - m) <= t:

@@ -11,7 +11,7 @@ class Solution(object):
         return result
 
     def getResult(self, n, result, factors):
-        i = 2 if not factors else factors[-1]
+        i = factors[-1] if factors else 2
         while i <= n / i:
             if n % i == 0:
                 factors.append(i)

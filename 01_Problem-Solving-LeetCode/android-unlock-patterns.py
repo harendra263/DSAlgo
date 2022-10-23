@@ -54,7 +54,7 @@ class Solution(object):
                     if ((x1 == x2 and abs(y1 - y2) == 2) or
                         (y1 == y2 and abs(x1 - x2) == 2) or
                         (abs(x1 - x2) == 2 and abs(y1 - y2) == 2)) and \
-                       not contain(used,
+                           not contain(used,
                                    convert((x1 + x2) // 2, (y1 + y2) // 2)):
                             continue
 
@@ -117,7 +117,7 @@ class Solution2(object):
                     if ((x1 == x2 and abs(y1 - y2) == 2) or
                         (y1 == y2 and abs(x1 - x2) == 2) or
                         (abs(x1 - x2) == 2 and abs(y1 - y2) == 2)) and \
-                       not contain(used,
+                           not contain(used,
                                    convert((x1 + x2) // 2, (y1 + y2) // 2)):
                             continue
 
@@ -165,7 +165,7 @@ class Solution_TLE(object):
                 if ((x1 == x2 and abs(y1 - y2) == 2) or
                     (y1 == y2 and abs(x1 - x2) == 2) or
                     (abs(x1 - x2) == 2 and abs(y1 - y2) == 2)) and \
-                   not contain(used,
+                       not contain(used,
                                convert((x1 + x2) // 2, (y1 + y2) // 2)):
                         continue
 

@@ -5,15 +5,15 @@ class Solution:
         end = 0
         res = 2**31
         s = 0
-        
+
         while end < len(nums):
             while s < target and end < len(nums):
                 s += nums[end]
                 end += 1
-            
+
             while s >= target and start < end:
                 res = min(res, end - start)
                 s -= nums[start]
                 start += 1
-        
+
         return res

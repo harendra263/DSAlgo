@@ -19,5 +19,5 @@ class Solution:
                         l += 1
                         while l < r and nums[l] == nums[l-1]:
                             l += 1
-        
+
         return res

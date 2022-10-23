@@ -27,9 +27,7 @@ class Solution2(object):
     def numTrees(self, n):
         counts = [1, 1]
         for i in xrange(2, n + 1):
-            count = 0
-            for j in xrange(i):
-                count += counts[j] * counts[i - j - 1]
+            count = sum(counts[j] * counts[i - j - 1] for j in xrange(i))
             counts.append(count)
         return counts[-1]
 

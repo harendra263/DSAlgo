@@ -36,9 +36,7 @@ class LinkedList(object):
 
     def find(self, key):
         curr = self.head
-        while curr:
-            if curr.key == key:
-                break
+        while curr and curr.key != key:
             curr = curr.next
         return curr
 
@@ -59,8 +57,7 @@ class MyHashMap(object):
         :rtype: void
         """
         l = self.__data[key % len(self.__data)]
-        node = l.find(key)
-        if node:
+        if node := l.find(key):
             node.val = value
         else:
             l.insert(ListNode(key, value))
@@ -72,11 +69,7 @@ class MyHashMap(object):
         :rtype: int
         """
         l = self.__data[key % len(self.__data)]
-        node = l.find(key)
-        if node:
-            return node.val
-        else:
-            return -1
+        return node.val if (node := l.find(key)) else -1
 
     def remove(self, key):
         """
@@ -85,8 +78,7 @@ class MyHashMap(object):
         :rtype: void
         """
         l = self.__data[key % len(self.__data)]
-        node = l.find(key)
-        if node:
+        if node := l.find(key):
             l.delete(node)
 
 

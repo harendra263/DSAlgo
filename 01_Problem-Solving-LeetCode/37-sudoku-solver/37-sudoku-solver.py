@@ -4,20 +4,17 @@ class Solution:
         def backtrack(board, i, j):
             if j == 9: i = i+1; j = 0
             if i == 9: return True
-            
+
             if board[i][j] != ".":
-                if backtrack(board, i, j+1): return True    # checking if the remaining calls can be valid or not
-                else: return False  # if remaining calls not valid then this recursive subtree can not be valid
-                
-            else:
-                for p in range(1, 10):
-                    ch = str(p)
-                    if self.isValid(board, i, j, ch):
-                        board[i][j] = ch
-                        if backtrack(board, i, j+1): return True  # if remaining recursive sub-tree is valid then return True from here
-                        board[i][j] = "."  # the subtree was not valid so it did not return so update current cell as new
-                return False   # No subtree was valid 
-        
+                return bool(backtrack(board, i, j+1))
+            for p in range(1, 10):
+                ch = str(p)
+                if self.isValid(board, i, j, ch):
+                    board[i][j] = ch
+                    if backtrack(board, i, j+1): return True  # if remaining recursive sub-tree is valid then return True from here
+                    board[i][j] = "."  # the subtree was not valid so it did not return so update current cell as new
+            return False   # No subtree was valid 
+
         backtrack(board, 0, 0)
         return board
     

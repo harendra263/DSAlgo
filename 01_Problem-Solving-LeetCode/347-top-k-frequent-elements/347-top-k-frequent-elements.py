@@ -8,12 +8,12 @@ class Solution:
                 countDict[i] = 1
             else:
                 countDict[i] += 1
-                
+
         n = max(list(countDict.values()))
         dic = {i:[] for i in range(1, n+1)}
         for i in countDict:
             dic[countDict[i]].append(i)
-        
+
         res = []
         for i in range(n, 0, -1):
             if len(dic[i]) > 0:

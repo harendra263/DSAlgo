@@ -13,9 +13,8 @@ class Solution(object):
         for i in reversed(xrange(len(nums))):
             if nums[i] < ak:
                 return True
-            else:
-                while st and nums[i] > st[-1]:
-                    ak = st.pop()
+            while st and nums[i] > st[-1]:
+                ak = st.pop()
             st.append(nums[i])
         return False
 

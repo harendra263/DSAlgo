@@ -15,7 +15,7 @@ class Solution(object):
 
         def g(a, b):
             return abs(a[0]-b[0])+abs(a[1]-b[1])
-        
+
         def a_star(grid, b, t, k):
             f, dh = g(b, t), 2
             closer, detour = [(b, k)], []

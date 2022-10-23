@@ -35,7 +35,7 @@ class Solution(object):
                 else:
                     left = mid+1
             return left
-        
+
         peak = binarySearch(mountain_arr, 0, mountain_arr.length()-1,
                             lambda x: mountain_arr.get(x) >= mountain_arr.get(x+1))
         left = binarySearch(mountain_arr, 0, peak,

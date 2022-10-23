@@ -9,7 +9,7 @@ class Solution(object):
         :type capacityB: int
         :rtype: int
         """
-        result = 0 
+        result = 0
         left, right = 0, len(plants)-1
         canA, canB = capacityA, capacityB
         while left < right: 
@@ -22,7 +22,6 @@ class Solution(object):
                 canB = capacityB
             canB -= plants[right]
             left, right = left+1, right-1
-        if left == right:
-            if max(canA, canB) < plants[left]:
-                result += 1
+        if left == right and max(canA, canB) < plants[left]:
+            result += 1
         return result

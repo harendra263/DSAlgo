@@ -3,7 +3,7 @@ class Solution:
         hashmap = {0:1}
         curSum = 0
         res = 0
-        
+
         for num in nums:
             curSum += num
             if (curSum - k) in hashmap:
@@ -12,5 +12,5 @@ class Solution:
                 hashmap[curSum] = 1
             else:
                 hashmap[curSum] += 1
-        
+
         return res

@@ -23,10 +23,9 @@ class Solution(object):
                 if not node:
                     continue
                 ret[0] = Node(node.val)
+                ret1 = [None]
                 for child in reversed(node.children):
-                    ret1 = [None]
-                    stk.append((2, (ret1, ret)))
-                    stk.append((1, (child, ret1)))
+                    stk.extend(((2, (ret1, ret)), (1, (child, ret1))))
             else:
                 ret1, ret = params
                 ret[0].children.append(ret1[0])

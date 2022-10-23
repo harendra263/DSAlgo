@@ -17,5 +17,5 @@ class Solution:
                     cur = cur.left
                 else:
                     cur = cur.right
-        
+
         return res

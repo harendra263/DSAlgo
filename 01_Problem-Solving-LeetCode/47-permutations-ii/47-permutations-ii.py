@@ -2,7 +2,7 @@ class Solution:
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
         nums.sort()
         res = []
-        
+
         def dfs(arr, path):
             if not arr:
                 res.append(path)
@@ -10,7 +10,7 @@ class Solution:
                 if i > 0 and arr[i] == arr[i-1]:
                     continue
                 dfs(arr[:i] + arr[i+1:], path + [arr[i]])
-            
+
         dfs(nums, [])
         return res
 

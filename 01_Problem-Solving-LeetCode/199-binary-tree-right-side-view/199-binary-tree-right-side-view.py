@@ -2,7 +2,7 @@ class Solution:
     def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
         if not root: return
         res = []
-        
+
         q = [root]
         while q:
             n = len(q)
@@ -12,5 +12,5 @@ class Solution:
                     res.append(node.val)
                 if node.left: q.append(node.left)
                 if node.right: q.append(node.right)
-        
+
         return res

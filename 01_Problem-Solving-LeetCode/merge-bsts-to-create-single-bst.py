@@ -61,9 +61,9 @@ class Solution(object):
                             del val_to_root[node.right.val]
                         new_q.append((node.right, node.val, right))
                 q = new_q
-            return root if not val_to_root else None
+            return None if val_to_root else root
 
         leaf_vals_set, val_to_root = set(), {}
-        find_leaves_and_roots(trees, leaf_vals_set, val_to_root)    
+        find_leaves_and_roots(trees, leaf_vals_set, val_to_root)
         root = find_root(trees, leaf_vals_set, val_to_root)
         return merge_bsts(root, leaf_vals_set, val_to_root)

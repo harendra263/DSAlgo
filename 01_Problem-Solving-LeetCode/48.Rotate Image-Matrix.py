@@ -12,12 +12,13 @@ class Solution:
             for j in range(len(matrix[0])):
                 matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
         #Rotate rows
-        for i in range(len(matrix)):
+        for item in matrix:
             l, r = 0, len(matrix[0]) - 1
             while l < r:
-                matrix[i][l], matrix[i][r] = matrix[i][r], matrix[i][l]
-                l += 1; r -= 1
-        
+                item[l], item[r] = item[r], item[l]
+                l += 1
+                r -= 1
+
         return matrix
 
 # Time Complexity = O(N*N)

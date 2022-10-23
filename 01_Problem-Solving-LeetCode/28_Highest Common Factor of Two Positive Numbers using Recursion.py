@@ -1,8 +1,5 @@
 def computeGCD(a,b):
-    if b ==0:
-        return a
-    else:
-        return computeGCD(b, a%b)
+    return a if b ==0 else computeGCD(b, a%b)
 
 a = int(input("a =  "))
 b = int(input("b =  "))

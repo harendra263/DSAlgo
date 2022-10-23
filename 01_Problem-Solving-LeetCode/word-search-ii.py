@@ -11,7 +11,7 @@ class TrieNode(object):
     def insert(self, word):
         cur = self
         for c in word:
-            if not c in cur.leaves:
+            if c not in cur.leaves:
                 cur.leaves[c] = TrieNode()
             cur = cur.leaves[c]
         cur.is_string = True
@@ -24,7 +24,7 @@ class Solution(object):
         :type words: List[str]
         :rtype: List[str]
         """
-        visited = [[False for j in xrange(len(board[0]))] for i in xrange(len(board))]
+        visited = [[False for _ in xrange(len(board[0]))] for _ in xrange(len(board))]
         result = {}
         trie = TrieNode()
         for word in words:

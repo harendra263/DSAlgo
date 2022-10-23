@@ -1,9 +1,6 @@
 num = int(input(""))
 def recur_factorial(n):
-   if n == 1:
-       return n
-   else:
-       return n*recur_factorial(n-1)
+   return n if n == 1 else n*recur_factorial(n-1)
 
 # check if the number is negative
 if num < 0:

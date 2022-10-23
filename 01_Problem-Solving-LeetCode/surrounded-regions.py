@@ -35,13 +35,10 @@ class Solution(object):
             i, j = q.popleft()
             for x, y in [(i+1, j), (i-1, j), (i, j+1), (i, j-1)]:
                 if 0 <= x < len(board) and 0 <= y < len(board[0]) and \
-                   board[x][y] == 'O':
+                       board[x][y] == 'O':
                     board[x][y] = 'V'
                     q.append((x, y))
 
         for i in xrange(len(board)):
             for j in xrange(len(board[0])):
-                if board[i][j] != 'V':
-                    board[i][j] = 'X'
-                else:
-                    board[i][j] = 'O'
+                board[i][j] = 'X' if board[i][j] != 'V' else 'O'

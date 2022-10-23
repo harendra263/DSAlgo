@@ -15,11 +15,11 @@ class Solution:
                 4   :"IV",
                 1   :"I" 
                 }
-        
+
         for i in dic:
             res += dic[i] * (num // i)
             num = num % i
-        
+
         return res
     
 # Time Complexity: O(1);  as it is constant independent on num

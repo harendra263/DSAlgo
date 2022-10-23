@@ -24,5 +24,5 @@ class Solution(object):
                 return val
             return (sumRootToLeafHelper(root.left, val) +
                     sumRootToLeafHelper(root.right, val)) % M
-        
+
         return sumRootToLeafHelper(root, 0)

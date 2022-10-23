@@ -33,8 +33,8 @@ class Codec:
         self.decodeMap = {}
     
     def getShortUrl(self):
-        code = ''.join(random.choice(self.chars) for i in range(6))
-        return "http://tinyurl.com/" + code
+        code = ''.join(random.choice(self.chars) for _ in range(6))
+        return f"http://tinyurl.com/{code}"
         
     def encode(self, longUrl: str) -> str:
         shortUrl = self.getShortUrl()

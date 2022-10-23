@@ -63,16 +63,13 @@ class SkipList(object):
     
     def __lower_bound(self, val, prevs):
         if prevs:
-            candidate = prevs[0].nexts[0]
-            if candidate:
+            if candidate := prevs[0].nexts[0]:
                 return candidate
         return None
 
     def __find(self, val, prevs):
         candidate = self.__lower_bound(val, prevs)
-        if candidate and candidate.val == val:
-            return candidate
-        return None
+        return candidate if candidate and candidate.val == val else None
 
     def __find_prev_nodes(self, val):
         prevs = [None]*len(self.__head.nexts)
@@ -167,7 +164,7 @@ class TweetCounts2(object):
         while i <= endTime:
             j = min(i+delta, endTime+1)
             result.append(bisect.bisect_left(self.__records[tweetName], j) - \
-                          bisect.bisect_left(self.__records[tweetName], i))
+                              bisect.bisect_left(self.__records[tweetName], i))
             i += delta
         return result
 

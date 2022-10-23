@@ -10,7 +10,7 @@ class Solution(object):
         :rtype: str
         """
         DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", \
-                "Thursday", "Friday", "Saturday"]
+                    "Thursday", "Friday", "Saturday"]
 
         # Zeller Formula
         if month < 3:

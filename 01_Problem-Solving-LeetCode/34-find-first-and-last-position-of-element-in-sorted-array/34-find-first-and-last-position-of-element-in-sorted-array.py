@@ -16,7 +16,7 @@ class Solution:
                     res[0] = mid
                     break
                 r = mid - 1
-                
+
         # last position
         l = 0
         r = len(nums)-1
@@ -31,6 +31,6 @@ class Solution:
                     res[1] = mid
                     break
                 l = mid + 1
-                
-        
+
+
         return res

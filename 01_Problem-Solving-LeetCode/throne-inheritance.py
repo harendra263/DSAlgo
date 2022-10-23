@@ -47,7 +47,6 @@ class ThroneInheritance(object):
                 result.append(node)
             if node not in self.__family_tree:
                 continue
-            for child in reversed(self.__family_tree[node]):
-                stk.append(child)
+            stk.extend(iter(reversed(self.__family_tree[node])))
         return result
 

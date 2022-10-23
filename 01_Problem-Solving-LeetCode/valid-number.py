@@ -33,13 +33,13 @@ class Solution(object):
             inputType = InputType.INVALID
             if char.isspace():
                 inputType = InputType.SPACE
-            elif char == '+' or char == '-':
+            elif char in ['+', '-']:
                 inputType = InputType.SIGN
             elif char.isdigit():
                 inputType = InputType.DIGIT
             elif char == '.':
                 inputType = InputType.DOT
-            elif char == 'e' or char == 'E':
+            elif char in ['e', 'E']:
                 inputType = InputType.EXPONENT
 
             state = transition_table[state][inputType]
@@ -47,7 +47,7 @@ class Solution(object):
             if state == -1:
                 return False
 
-        return state == 1 or state == 4 or state == 7 or state == 8
+        return state in [1, 4, 7, 8]
 
 
 class Solution2(object):

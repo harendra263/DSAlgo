@@ -1,8 +1,9 @@
 class Solution:
     def minimumEffortPath(self, heights: List[List[int]]) -> int:
-        row = len(heights); col = len(heights[0])
-        visited = [[False]*col for i in range(row)]
-        
+        row = len(heights)
+        col = len(heights[0])
+        visited = [[False]*col for _ in range(row)]
+
         moves = [(-1, 0), (1, 0), (0, -1), (0, 1)]
         minheap = [(0, 0, 0)] # dist, row, col
         while minheap:

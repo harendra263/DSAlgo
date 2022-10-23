@@ -30,4 +30,4 @@ class Solution(object):
                 result.append(rains[j])
             else:
                 result.append(1)
-        return result if not min_heap else []
+        return [] if min_heap else result

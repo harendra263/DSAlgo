@@ -142,8 +142,8 @@ class Solution(object):
                 for dx, dy in directions:
                     ni, nj = i+dx, j+dy
                     if 0 <= ni < len(seats) and \
-                       0 <= nj < len(seats[0]) and \
-                       seats[ni][nj] == '.':
+                           0 <= nj < len(seats[0]) and \
+                           seats[ni][nj] == '.':
                         E[i*len(seats[0])+j].append(ni*len(seats[0])+nj)
         return count-len(bipartiteMatch(E)[0])
 
@@ -205,7 +205,7 @@ class Solution3(object):
                 n &= n - 1
                 result += 1
             return result
-        
+
         dp = {0: 0}
         for row in seats:
             invalid_mask = sum(1 << c for c, v in enumerate(row) if v == '#')
@@ -213,8 +213,8 @@ class Solution3(object):
             for mask1, v1 in dp.iteritems():
                 for mask2 in xrange(1 << len(seats[0])):
                     if (mask2 & invalid_mask) or \
-                       (mask2 & (mask1 << 1)) or (mask2 & (mask1 >> 1)) or \
-                       (mask2 & (mask2 << 1)) or (mask2 & (mask2 >> 1)):
+                           (mask2 & (mask1 << 1)) or (mask2 & (mask1 >> 1)) or \
+                           (mask2 & (mask2 << 1)) or (mask2 & (mask2 >> 1)):
                         continue
                     new_dp[mask2] = max(new_dp.get(mask2, 0), v1+popcount(mask2))
             dp = new_dp

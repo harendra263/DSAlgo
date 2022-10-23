@@ -13,8 +13,8 @@ class Solution(object):
         nums = [y for y in nums if y and any(0 <= nx <= MAX_X for nx in (y, goal-y, goal+y, goal^y))]
         q = [(start, 0)]
         lookup = {start}
+        new_q = []
         while q:
-            new_q = []
             for x, steps in q:
                 for y in nums:
                     for nx in (x+y, x-y, x^y):

@@ -15,9 +15,9 @@ class Solution:
             if slow == fast: 
                 isCycle = True
                 break
-        
+
         if isCycle == False: return None
-        
+
         while True:
             if head == slow: return slow
             head = head.next

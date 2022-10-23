@@ -15,12 +15,12 @@ class Solution(object):
                     return False
                 i = (i+1)%len(common)
             return True
-    
+
         def gcd(a, b):  # Time: O(log(min(a, b)))
             while b:
                 a, b = b, a % b
             return a
-        
+
         if not str1 or not str2:
             return ""
         c = gcd(len(str1), len(str2))

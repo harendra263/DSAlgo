@@ -7,33 +7,21 @@ class Solution:
                     sign *= 1
                 elif ord(i) == 45:
                     sign *= -1
-            
-            
-            s  = list(s)
-            result = ""
-            for i in range(len(s)):
-                if (ord(s[i]) >=48 and ord(s[i])<=57):
-                    result += s[i]
 
+
+            s  = list(s)
+            result = "".join(item for item in s if ord(item) >= 48 and ord(item) <= 57)
             result = int(result)
             if sign != "a":
                 samir = int(sign * result)
                 if samir >= -2**31 and samir <= 2**31-1:
                     return samir
                 else:
-                    if samir < -(2**31):
-                        return (-(2**31))
-                    elif samir > 2**31-1:
-                        return (2**31-1)
+                    return (-(2**31)) if samir < -(2**31) else (2**31-1)
+            elif result >= -2**31 and result<= 2**31-1:
+                return result
             else:
-                if result >= -2**31 and result<= 2**31-1:
-                    return result
-                else:
-                    if result  < -(2**31):
-                        return (-(2**31))
-                    elif result > 2**31-1:
-                        return 2**31-1
-                
+                return (-(2**31)) if result  < -(2**31) else 2**31-1
         return 0
 
 

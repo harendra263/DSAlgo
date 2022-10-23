@@ -24,11 +24,11 @@ class Solution:
         # Time: O(N^2)
         # Space: O(N)
         '''
-        
+
         # Best / Optimized Solution => Greedy approach
         if sum(gas) < sum(cost):  # we loop through the path so total gas > total path cost
             return -1
-        
+
         total = 0
         res = 0
         for i in range(len(gas)):
@@ -36,7 +36,7 @@ class Solution:
             if total < 0:  # current total is negetive so it can not be the starting. Hope the next index is the starting path. 
                 res = i+1
                 total = 0
-        
+
         return res
     
 # Time: O(N)

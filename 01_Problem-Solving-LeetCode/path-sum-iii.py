@@ -44,13 +44,13 @@ class Solution2(object):
 
             curr = prev + root.val
             return int(curr == sum) + \
-                   pathSumHelper(root.left, curr, sum) + \
-                   pathSumHelper(root.right, curr, sum)
+                       pathSumHelper(root.left, curr, sum) + \
+                       pathSumHelper(root.right, curr, sum)
 
         if root is None:
             return 0
 
         return pathSumHelper(root, 0, sum) + \
-               self.pathSum(root.left, sum) + \
-               self.pathSum(root.right, sum)
+                   self.pathSum(root.left, sum) + \
+                   self.pathSum(root.right, sum)
 

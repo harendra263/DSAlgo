@@ -7,6 +7,6 @@ class Solution:
             while stack and stack[-1] > ch and rem >= k - len(stack):
                 stack.pop()
             stack.append(ch)
-        
+
         return stack[:k]
         

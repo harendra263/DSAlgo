@@ -28,9 +28,7 @@ class ValidWordAbbr(object):
 
 
     def abbreviation(self, word):
-        if len(word) <= 2:
-            return word
-        return word[0] + str(len(word)-2) + word[-1]
+        return word if len(word) <= 2 else word[0] + str(len(word)-2) + word[-1]
 
 
 

@@ -61,28 +61,26 @@ class Solution:
     def balancedStringSplit(self, s: str) -> int:
         
         a = 0
-        stack = []
-        
-        stack.append(s[0])
+        stack = [s[0]]
+
         i = 1
         while i < len(s):
             
             
-            if stack[len(stack)-1] != s[i]:
+            if stack[-1] != s[i]:
                 stack.pop()
-            
-            if len(stack) !=0:    
-                if stack[len(stack)-1] == s[i]:
-                    stack.append(s[i])
 
-                
-            if len(stack) ==0:
+            if stack and stack[-1] == s[i]:
+                stack.append(s[i])
+
+
+            if not stack:
                 a = a+1
-                i = i+1
+                i += 1
                 if i<len(s):
                     stack.append(s[i])
-            i = i+1
-            
+            i += 1
+
         return a
         
 
@@ -97,18 +95,18 @@ class Solution:
 class Solution:
     def balancedStringSplit(self, s: str) -> int:
         l_count, r_count, total = 0, 0, 0
-        
+
         for char in s:
             if char == 'L':
                 l_count += 1
             elif char == 'R':
                 r_count += 1
-            
+
             if l_count == r_count:
                 total += 1
                 l_count = 0
                 r_count = 0
-        
+
         return total
 
 

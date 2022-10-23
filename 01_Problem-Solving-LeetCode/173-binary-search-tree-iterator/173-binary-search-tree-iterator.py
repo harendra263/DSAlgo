@@ -19,8 +19,7 @@ class BSTIterator:
         return res
 
     def hasNext(self) -> bool:
-        if self.i < self.n: return True
-        return False
+        return self.i < self.n
     
     def inorder(self, root):
         if not root: return

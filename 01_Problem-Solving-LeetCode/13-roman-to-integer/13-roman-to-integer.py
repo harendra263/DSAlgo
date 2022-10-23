@@ -16,7 +16,7 @@ class Solution:
                 "CM": 900,
                 "M" : 1000,
                 }
-        
+
         i = 0
         while i < n:
             if i < n-1 and s[i:i+2] in dic:
@@ -25,5 +25,5 @@ class Solution:
             else:
                 res += dic[s[i:i+1]]
                 i += 1
-        
+
         return res

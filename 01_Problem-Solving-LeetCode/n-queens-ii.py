@@ -30,9 +30,14 @@ class Solution2(object):
     def totalNQueensRecu(self, solution, row, n):
         if row == n:
             return 1
-        result = 0
-        for i in xrange(n):
-            if i not in solution and reduce(lambda acc, j: abs(row - j) != abs(i - solution[j]) and acc, xrange(len(solution)), True):
-                result += self.totalNQueensRecu(solution + [i], row + 1, n)
-        return result
+        return sum(
+            self.totalNQueensRecu(solution + [i], row + 1, n)
+            for i in xrange(n)
+            if i not in solution
+            and reduce(
+                lambda acc, j: abs(row - j) != abs(i - solution[j]) and acc,
+                xrange(len(solution)),
+                True,
+            )
+        )
 

@@ -13,8 +13,7 @@ def dailyTemperatures(T):
 		# Check if current index is the
 		# next warmer temperature of
 		# any previous indexes
-		while(len(s) != 0 and
-			T[s[-1]] < T[i]):
+		while s and T[s[-1]] < T[i]:
 			daysOfWait[s[-1]] = i - s[-1]
 
 			# Pop the element

@@ -5,7 +5,7 @@ class Solution:
         arr = [str(i+1) for i in range(n)]
         res = ""
         k -= 1
-        
+
         while fact >= 1:
             ind = k // fact
             res += arr[ind]
@@ -14,6 +14,6 @@ class Solution:
             n -= 1
             if n == 0: break
             fact = fact // n
-        
+
         res += "".join(arr)
         return res

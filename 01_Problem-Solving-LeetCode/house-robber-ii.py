@@ -12,7 +12,7 @@ class Solution(object):
             return nums[0]
 
         return max(self.robRange(nums, 0, len(nums) - 1),\
-                   self.robRange(nums, 1, len(nums)))
+                       self.robRange(nums, 1, len(nums)))
 
     def robRange(self, nums, start, end):
         num_i, num_i_1 = nums[start], 0

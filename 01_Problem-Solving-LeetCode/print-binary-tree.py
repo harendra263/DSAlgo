@@ -8,14 +8,10 @@ class Solution(object):
         :rtype: List[List[str]]
         """
         def getWidth(root):
-            if not root:
-                return 0
-            return 2 * max(getWidth(root.left), getWidth(root.right)) + 1
+            return 2 * max(getWidth(root.left), getWidth(root.right)) + 1 if root else 0
 
         def getHeight(root):
-            if not root:
-                return 0
-            return max(getHeight(root.left), getHeight(root.right)) + 1
+            return max(getHeight(root.left), getHeight(root.right)) + 1 if root else 0
 
         def preorderTraversal(root, level, left, right, result):
             if not root:

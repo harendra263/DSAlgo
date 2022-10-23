@@ -19,5 +19,5 @@ class Solution(object):
             for di, dj in directions:
                 result &= dfs(grid1, grid2, i+di, j+dj)
             return result
-            
+
         return sum(dfs(grid1, grid2, i, j) for i in xrange(len(grid2)) for j in xrange(len(grid2[0])) if grid2[i][j])

@@ -33,7 +33,7 @@ class Solution(object):
                         new_q.append(v)
                 q = new_q
             return result
-            
+
         inv_adj = [[] for _ in xrange(len(favorite))]  
         for u, v in enumerate(favorite):
             inv_adj[v].append(u)

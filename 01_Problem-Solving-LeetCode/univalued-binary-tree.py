@@ -22,8 +22,7 @@ class Solution(object):
                 continue
             if node.val != root.val:
                 return False
-            s.append(node.left)
-            s.append(node.right)
+            s.extend((node.left, node.right))
         return True
     
 
