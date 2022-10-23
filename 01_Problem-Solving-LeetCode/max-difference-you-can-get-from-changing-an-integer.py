@@ -18,4 +18,4 @@ class Solution(object):
                 if a > '1':
                     break
         return int(digits.replace(b, '9')) - \
-               int(digits.replace(a, '1' if digits[0] != '1' else '0'))
+                   int(digits.replace(a, '1' if digits[0] != '1' else '0'))

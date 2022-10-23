@@ -13,13 +13,13 @@ class Solution:
         while i < n+1 and fast:
             fast = fast.next
             i += 1
-        
+
         while fast:
             slow = slow.next
             fast = fast.next
-        
+
         tmp = slow.next.next
         slow.next.next = None
         slow.next = tmp
-        
+
         return dummy.next

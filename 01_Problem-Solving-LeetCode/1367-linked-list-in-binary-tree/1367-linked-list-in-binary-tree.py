@@ -13,10 +13,19 @@ class Solution:
     def isSubPath(self, head: Optional[ListNode], root: Optional[TreeNode]) -> bool:
         def dfs(head, root):
             if not head: return True
-            if not root: return False
-            return root.val == head.val and (dfs(head.next, root.left) or dfs(head.next, root.right))
-        
+            return (
+                root.val == head.val
+                and (dfs(head.next, root.left) or dfs(head.next, root.right))
+                if root
+                else False
+            )
+
         if not head: return True
-        if not root: return False
-        return dfs(head, root) or self.isSubPath(head, root.left) or self.isSubPath(head, root.right)
+        return (
+            dfs(head, root)
+            or self.isSubPath(head, root.left)
+            or self.isSubPath(head, root.right)
+            if root
+            else False
+        )
     

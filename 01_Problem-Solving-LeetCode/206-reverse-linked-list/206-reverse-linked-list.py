@@ -10,12 +10,8 @@ class Solution:
         dummy.next = head
         pre = dummy
         cur = pre.next
-        nex = cur.next
-        
-        while nex:
+        while nex := cur.next:
             cur.next = nex.next
             nex.next = pre.next
             pre.next = nex
-            nex = cur.next
-        
         return dummy.next

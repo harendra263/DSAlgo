@@ -6,18 +6,17 @@ class Solution:
                 dic[m[0]] = {m[1]}
             else:
                 dic[m[0]].add(m[1])
-        
+
         for i in range(len(s)-len(sub)+1):
             j = 0
             while j < len(sub):
                 if s[i+j] == sub[j]:
                     j += 1
+                elif sub[j] in dic and s[i+j] in dic[sub[j]]:
+                    j += 1
                 else:
-                    if sub[j] in dic and s[i+j] in dic[sub[j]]:
-                        j += 1
-                    else:
-                        break
+                    break
             if j == len(sub): return True
-        
+
         return False
     

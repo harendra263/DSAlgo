@@ -40,7 +40,7 @@ class Solution(object):
                 backtracking(s, k, curr, cnts, result)
                 curr.pop()
                 cnts[c] += k
-                    
+
         cnts = collections.Counter(s)
         new_s = []
         for c in s:

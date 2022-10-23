@@ -4,15 +4,10 @@ class Solution:
         i = 0
         res = ""
         while i < n:
-            if i < n-2:
-                if s[i+2] == "#":
-                    res += chr(96+int(s[i:i+2]))
-                    i += 3
-                else:
-                    res += chr(96+int(s[i]))
-                    i += 1
+            if i < n - 2 and s[i + 2] == "#":
+                res += chr(96+int(s[i:i+2]))
+                i += 3
             else:
                 res += chr(96+int(s[i]))
                 i += 1
-        
         return res

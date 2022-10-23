@@ -77,13 +77,9 @@ class Solution2(object):
                     prefix[i] = j
                 return prefix
 
-            if not needle:
-                return 0
-            return KMP(haystack, needle)
+            return KMP(haystack, needle) if needle else 0
 
-        if len(A) != len(B):
-            return False
-        return strStr(A*2, B) != -1
+        return False if len(A) != len(B) else strStr(A*2, B) != -1
 
 
 # Time:  O(n^2)

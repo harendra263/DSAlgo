@@ -2,7 +2,7 @@ class Solution:
     def parseBoolExpr(self, expression: str) -> bool:
         logics = []
         stack = []
-        
+
         def cal(tmp, top, op):
             if op == '!':
                 tmp = 't' if tmp == 'f' else 'f'
@@ -29,7 +29,7 @@ class Solution:
             else:
                 stack.append(i)
             # print(stack, logics, i)
-        
+
         if logics:
             op = logics.pop()
             tmp = stack.pop()
@@ -37,8 +37,8 @@ class Solution:
                 top = stack.pop()
                 tmp = cal(tmp, top, op)
             stack.append(tmp)
-        
-        return True if stack[0] == 't' else False
+
+        return stack[0] == 't'
         
                     
                     

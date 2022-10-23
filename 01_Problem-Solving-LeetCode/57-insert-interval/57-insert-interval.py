@@ -8,11 +8,11 @@ class Solution:
         if newInterval[0] <= intervals[0][0]:
             intervals = [newInterval] + intervals
             update = True
-        
+
         if newInterval[0] >= intervals[-1][0]:
-            intervals = intervals + [newInterval]
+            intervals += [newInterval]
             update = True
-        
+
         for i in range(len(intervals)):
             if intervals[i][0] >= newInterval[0]:
                 intervals = intervals[:i] + [newInterval] + intervals[i:] 
@@ -26,7 +26,7 @@ class Solution:
                 intervals.pop(i)
             else:
                 i += 1
-        
+
         return intervals
                 
 '''

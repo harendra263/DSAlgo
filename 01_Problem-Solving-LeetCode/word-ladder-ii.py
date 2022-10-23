@@ -32,7 +32,7 @@ class Solution(object):
                         is_found = True
                     else: 
                         new_left.add(new_word)
-                    tree[new_word].add(word) if not is_reversed else tree[word].add(new_word)
+                    tree[word].add(new_word) if is_reversed else tree[new_word].add(word)
             if is_found:
                 break
             left = new_left
@@ -52,7 +52,14 @@ class Solution2(object):
         :rtype: List[List[str]]
         """
         dictionary = set(wordList)
-        result, cur, visited, found, trace = [], [beginWord], set([beginWord]), False, defaultdict(list)
+        result, cur, visited, found, trace = (
+            [],
+            [beginWord],
+            {beginWord},
+            False,
+            defaultdict(list),
+        )
+
 
         while cur and not found:
             for word in cur:

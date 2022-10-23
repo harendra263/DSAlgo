@@ -5,8 +5,7 @@
 * * * * 
 * * * * * 
 '''
+
 n = int(input("enter no. of rows:  "))
-i = 1
-while i<=n:
+for i in range(1, n + 1):
     print("* "*i)
-    i = i+1

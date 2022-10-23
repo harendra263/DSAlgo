@@ -19,10 +19,10 @@ class Solution(object):
         mono_increasing_q = collections.deque()
         for i, curr in enumerate(accumulated_sum):
             while mono_increasing_q and curr <= \
-                    accumulated_sum[mono_increasing_q[-1]]:
+                        accumulated_sum[mono_increasing_q[-1]]:
                 mono_increasing_q.pop()
             while mono_increasing_q and \
-                    curr-accumulated_sum[mono_increasing_q[0]] >= K:
+                        curr-accumulated_sum[mono_increasing_q[0]] >= K:
                 result = min(result, i-mono_increasing_q.popleft())
             mono_increasing_q.append(i)
         return result if result != float("inf") else -1

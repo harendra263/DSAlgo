@@ -13,7 +13,7 @@ class Solution(object):
         base = 1
         while n >= base:
             result += (n//(10*base)-is_zero)*base + \
-                      min(base, max(n%(10*base) - DIGIT*base + 1, 0))
+                          min(base, max(n%(10*base) - DIGIT*base + 1, 0))
             base *= 10
         return result
 

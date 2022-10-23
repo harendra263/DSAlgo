@@ -11,32 +11,30 @@ class Solution:
         a = head
         b = mid.next
         mid.next = None
-        
+
         # reverse b
         dummy = ListNode(-1)
         dummy.next = b
         pre = dummy
         cur = pre.next
-        nex = cur.next
-        while nex:
+        while nex := cur.next:
             cur.next = nex.next
             nex.next = pre.next
             pre.next = nex
-            nex = cur.next
         b = dummy.next
-        
+
         # merge a and b
         while a and b:
             anext = a.next
             a.next = None
             bnext = b.next
             b.next = None
-            
+
             a.next = b
             a = a.next
             a.next = anext
             a = a.next
-            
+
             b = bnext
-        
+
         return head

@@ -21,7 +21,7 @@ class Solution(object):
                     j += 1
                 prefix[i] = j
             return prefix
-    
+
         prefix = getPrefix(evil)
         dp = [[[[0]*len(evil) for _ in xrange(2)] for _ in xrange(2)] for _ in xrange(2)]
         dp[0][0][0][0] = 1
@@ -44,7 +44,7 @@ class Solution(object):
                             if m+1 == len(evil):
                                 continue
                             dp[(i+1)%2][j or (s1[i] != c)][k or (s2[i] != c)][m+1] = \
-                                (dp[(i+1)%2][j or (s1[i] != c)][k or (s2[i] != c)][m+1] + dp[i%2][j][k][l]) % MOD
+                                    (dp[(i+1)%2][j or (s1[i] != c)][k or (s2[i] != c)][m+1] + dp[i%2][j][k][l]) % MOD
         result = 0
         for j in xrange(2):
             for k in xrange(2):

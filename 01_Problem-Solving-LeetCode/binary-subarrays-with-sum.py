@@ -18,7 +18,7 @@ class Solution(object):
                 left += 1
             sum_right += a
             while right < i and \
-                  (sum_right > S or (sum_right == S and not A[right])):
+                      (sum_right > S or (sum_right == S and not A[right])):
                 sum_right -= A[right]
                 right += 1
             if sum_left == S:

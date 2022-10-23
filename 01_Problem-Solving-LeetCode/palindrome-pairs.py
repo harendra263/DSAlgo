@@ -11,19 +11,16 @@ class Solution(object):
         :rtype: List[List[int]]
         """
         res = []
-        lookup = {}
-        for i, word in enumerate(words):
-            lookup[word] = i
-
+        lookup = {word: i for i, word in enumerate(words)}
         for i in xrange(len(words)):
             for j in xrange(len(words[i]) + 1):
                 prefix = words[i][j:]
                 suffix = words[i][:j]
                 if prefix == prefix[::-1] and \
-                   suffix[::-1] in lookup and lookup[suffix[::-1]] != i:
+                       suffix[::-1] in lookup and lookup[suffix[::-1]] != i:
                     res.append([i, lookup[suffix[::-1]]])
                 if j > 0 and suffix == suffix[::-1] and \
-                   prefix[::-1] in lookup and lookup[prefix[::-1]] != i:
+                       prefix[::-1] in lookup and lookup[prefix[::-1]] != i:
                     res.append([lookup[prefix[::-1]], i])
         return res
 
@@ -50,10 +47,7 @@ class Solution_TLE(object):
             center, right = 0, 0
             for i in xrange(1, len(T) - 1):
                 i_mirror = 2 * center - i
-                if right > i:
-                    P[i] = min(right - i, P[i_mirror])
-                else:
-                    P[i] = 0
+                P[i] = min(right - i, P[i_mirror]) if right > i else 0
                 while T[i + 1 + P[i]] == T[i - 1 - P[i]]:
                     P[i] += 1
                 if i + P[i] > right:
@@ -90,7 +84,7 @@ class TrieNode(object):
     def insert(self, word, i):
         cur = self
         for c in word:
-            if not c in cur.leaves:
+            if c not in cur.leaves:
                 cur.leaves[c] = TrieNode()
             cur = cur.leaves[c]
         cur.word_idx = i
@@ -101,7 +95,7 @@ class TrieNode(object):
             if s[i] in cur.leaves:
                 cur = cur.leaves[s[i]]
                 if cur.word_idx not in (-1, idx) and \
-                   self.is_palindrome(s, i - 1):
+                       self.is_palindrome(s, i - 1):
                     res.append([cur.word_idx, idx])
             else:
                 break

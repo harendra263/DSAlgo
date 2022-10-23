@@ -3,11 +3,11 @@ class Solution:
         res = []
         n = len(s); k = len(p)
         if n < k: return res
-        
+
         pDic = {chr(97+i):0 for i in range(26)}
         for i in p:
             pDic[i] += 1
-        
+
         sDic = {chr(97+i):0 for i in range(26)}
         for i in s[:k]:
             sDic[i] += 1
@@ -20,5 +20,5 @@ class Solution:
             sDic[s[i+k]] += 1
             sDic[s[i]] -= 1
             i += 1
-        
+
         return res

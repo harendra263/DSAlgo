@@ -11,7 +11,7 @@ class Solution(object):
         def kth_factor(n, k=0):
             mid = None
             i = 1
-            while i*i <= n:
+            while i**2 <= n:
                 if not n%i:
                     mid = i
                     k -= 1
@@ -19,7 +19,7 @@ class Solution(object):
                         break
                 i += 1
             return mid, -k
-    
+
         mid, count = kth_factor(n)
         total = 2*count-(mid*mid == n)
         if k > total:
@@ -39,9 +39,9 @@ class Solution2(object):
         """
         result = []
         i = 1
-        while i*i <= n:
+        while i**2 <= n:
             if not n%i:
-                if i*i != n:
+                if i**2 != n:
                     result.append(i)
                 k -= 1
                 if not k:

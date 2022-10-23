@@ -9,6 +9,6 @@ class Solution:
                 i += 1
             res = max(res, count)
             i += 1
-        
+
         return res
             

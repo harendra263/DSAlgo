@@ -14,7 +14,7 @@ class Solution(object):
         def find_closest(ids, r):
             result, min_dist = -1, float("inf")
             i = ids.bisect_right(r)
-            if i-1 >= 0 and abs(ids[i-1]-r) < min_dist:
+            if i >= 1 and abs(ids[i - 1] - r) < min_dist:
                 min_dist = abs(ids[i-1]-r)
                 result = ids[i-1]
             if i < len(ids) and abs(ids[i]-r) < min_dist:
@@ -52,7 +52,7 @@ class Solution2(object):
         def find_closest(ids, r):
             result, min_dist = -1, float("inf")
             i = ids.bisect_right(r)
-            if i-1 >= 0 and abs(ids[i-1]-r) < min_dist:
+            if i >= 1 and abs(ids[i - 1] - r) < min_dist:
                 min_dist = abs(ids[i-1]-r)
                 result = ids[i-1]
             if i < len(ids) and abs(ids[i]-r) < min_dist:
@@ -64,7 +64,7 @@ class Solution2(object):
         for i, q in enumerate(queries):
             q.append(i)
         queries.sort(key=lambda x: x[1])
-        ids = SortedList(i for i, _ in rooms)        
+        ids = SortedList(i for i, _ in rooms)
         i = 0
         result = [-1]*len(queries)
         for r, s, idx in queries:

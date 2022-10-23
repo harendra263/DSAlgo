@@ -10,14 +10,14 @@ class Solution:
         Since they are sorted in ascending order, the pairs with the minimum sum will
         be just the first 'K' numbers from those two arrays.
         """
-        for i in range(0, min(k, len(nums1))):
-            for j in range(0, min(k, len(nums2))):
+        for i in range(min(k, len(nums1))):
+            for j in range(min(k, len(nums2))):
                 x = nums1[i]
                 y = nums2[j]
-                
+
                 # sum of two number
                 total = x + y
-                
+
                 if len(maxHeap) < k:
                     heapq.heappush(maxHeap, [-total, x, y])
                 else:
@@ -26,7 +26,7 @@ class Solution:
                     # we will not be able to find a pair with smaller sum moving forward.
                     if total > -maxHeap[0][0]:
                         break
-                    
+
                     # push new numbers to the heap
                     heapq.heappush(maxHeap, [-total, x, y])
 

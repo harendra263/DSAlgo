@@ -21,7 +21,7 @@ class Solution(object):
                     return 0
                 result |= power[ord(c)-ord('a')]
             return result
-        
+
         def number_of_one(n):
             result = 0
             while n:
@@ -57,7 +57,7 @@ class Solution2(object):
                     return 0
                 result |= power[ord(c)-ord('a')]
             return result
-    
+
         bitsets = [bitset(x) for x in arr]
         result = 0
         for i in xrange(power[len(arr)]):

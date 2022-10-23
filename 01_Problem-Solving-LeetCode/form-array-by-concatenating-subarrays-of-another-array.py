@@ -12,18 +12,18 @@ class Solution(object):
             prefix = [-1]*len(pattern)
             j = -1
             for i in xrange(1, len(pattern)):
-                while j+1 > 0 and pattern[j+1] != pattern[i]:
+                while j > -1 and pattern[j + 1] != pattern[i]:
                     j = prefix[j]
                 if pattern[j+1] == pattern[i]:
                     j += 1
                 prefix[i] = j
             return prefix
-        
+
         def KMP(text, pattern, start):
             prefix = getPrefix(pattern)
             j = -1
             for i in xrange(start, len(text)):
-                while j+1 > 0 and pattern[j+1] != text[i]:
+                while j > -1 and pattern[j + 1] != text[i]:
                     j = prefix[j]
                 if pattern[j+1] == text[i]:
                     j += 1

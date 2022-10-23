@@ -32,7 +32,7 @@ class Solution:
 
 class Solution:
     def findKthBit(self, n, k):
-        return str(k // (k & -k) >> 1 & 1 ^ k & 1 ^ 1)
+        return str(k // (k & -k) >> 1 & 1 ^ k & 0)
 
 # Time: O(1)
 # Space: O(1)

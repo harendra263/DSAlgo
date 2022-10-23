@@ -6,6 +6,6 @@ class Solution:
                 mp[i] = 1
             else:
                 mp[i] += 1
-        
+
         occurrences = list(mp.values())
         return len(set(occurrences )) == len(occurrences )

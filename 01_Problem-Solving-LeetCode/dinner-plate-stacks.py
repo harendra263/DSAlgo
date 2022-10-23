@@ -37,9 +37,7 @@ class DinnerPlates(object):
         """
         while self.__stks and not self.__stks[-1]:
             self.__stks.pop()
-        if not self.__stks:
-            return -1
-        return self.__stks[-1].pop()
+        return self.__stks[-1].pop() if self.__stks else -1
 
     def popAtStack(self, index):
         """

@@ -9,15 +9,15 @@ class Solution:
         a = headA
         b = headB
         loopCount = 0
-        
+
         while True:   
             if a == b: return a
-            
+
             a = a.next
             b = b.next
-            
+
             if not a: a = headB; loopCount += 1
             if not b: b = headA
-            
+
             if loopCount > 1: return None
                 

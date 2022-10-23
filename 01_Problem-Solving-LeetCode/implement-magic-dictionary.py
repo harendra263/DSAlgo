@@ -36,12 +36,12 @@ class MagicDictionary(object):
 
             if word[i] not in curr:
                 return any(find(word, curr[c], i+1, False) for c in curr if c != "_end") \
-                           if mistakeAllowed else False
+                               if mistakeAllowed else False
 
             if mistakeAllowed:
                 return find(word, curr[word[i]], i+1, True) or \
-                       any(find(word, curr[c], i+1, False) \
-                           for c in curr if c not in ("_end", word[i]))
+                           any(find(word, curr[c], i+1, False) \
+                               for c in curr if c not in ("_end", word[i]))
             return find(word, curr[word[i]], i+1, False)
 
         return find(word, self.trie, 0, True)

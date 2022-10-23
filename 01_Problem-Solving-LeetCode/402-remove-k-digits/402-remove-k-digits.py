@@ -10,14 +10,14 @@ class Solution:
                 monoStack.pop()
                 k -= 1
             monoStack.append(i)
-        
+
         while monoStack and k > 0:
             monoStack.pop()
             k -= 1
-        
+
         res = "".join(monoStack)
-        if res == '': return '0'
+        if not res: return '0'
         res = int(res)  # if num = "10200" => res = 0200
         res = str(res)
-        
+
         return res

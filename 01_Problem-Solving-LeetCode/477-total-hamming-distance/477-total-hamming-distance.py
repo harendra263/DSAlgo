@@ -10,7 +10,7 @@ We then add all of these together to get our answer.
 class Solution:
     def totalHammingDistance(self, nums: List[int]) -> int:
         res = 0
-        
+
         for i in range(32):
             mask = 1 << i      # left shifting 1 by i eg. 1 << 4 = 00010000
             zero = 0; one = 0  # count of 0 and 1 at i'th bit position for all elements of nums
@@ -19,7 +19,7 @@ class Solution:
                     one += 1   
                 else:          # if 0
                     zero += 1
-            
+
             res += zero * one  # total number of diff bits at i'th position
-        
+
         return res

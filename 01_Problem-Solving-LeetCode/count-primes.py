@@ -44,5 +44,5 @@ class Solution_TLE(object):
                         break
                     spf[i*p] = p
             return primes
-    
+
         return len(linear_sieve_of_eratosthenes(n-1))

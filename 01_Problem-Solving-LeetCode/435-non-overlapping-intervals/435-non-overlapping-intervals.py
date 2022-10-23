@@ -9,5 +9,5 @@ class Solution:
             else:
                 res += 1
                 preEnd = min(preEnd, end)
-        
+
         return res

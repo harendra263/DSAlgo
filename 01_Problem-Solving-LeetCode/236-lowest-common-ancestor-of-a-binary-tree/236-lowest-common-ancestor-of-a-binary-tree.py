@@ -11,8 +11,6 @@ class Solution:
             return root
         l = self.lowestCommonAncestor(root.left, p, q)
         r = self.lowestCommonAncestor(root.right, p, q)
-        
-        if l and r: return root
-        if not l: return r
-        else: return l
+
+        return root if l and r else l or r
         

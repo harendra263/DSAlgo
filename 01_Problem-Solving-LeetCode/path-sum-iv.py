@@ -19,7 +19,7 @@ class Solution(object):
 
             def isParent(self, other):
                 return self.level == other.level-1 and \
-                       self.i == other.i/2
+                           self.i == other.i/2
 
         if not nums:
             return 0

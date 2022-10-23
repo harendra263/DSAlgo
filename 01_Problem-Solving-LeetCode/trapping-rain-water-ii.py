@@ -16,7 +16,7 @@ class Solution(object):
         if not n:
             return 0
 
-        is_visited = [[False for i in xrange(n)] for j in xrange(m)]
+        is_visited = [[False for _ in xrange(n)] for _ in xrange(m)]
 
         heap = []
         for i in xrange(m):

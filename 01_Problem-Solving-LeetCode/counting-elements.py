@@ -8,7 +8,7 @@ class Solution(object):
         :rtype: int
         """
         lookup = set(arr)
-        return sum(1 for x in arr if x+1 in lookup)
+        return sum(x+1 in lookup for x in arr)
 
 
 # Time:  O(nlogn)

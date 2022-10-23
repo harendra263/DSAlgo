@@ -25,9 +25,11 @@ class WordDictionary:
             return node.endOfWord
         for i in range(len(word)):
             if word[i] == '.':
-                for child in node.children.values():
-                    if child and self.dfs(child, word[i+1:]): return True
-                else: return False
+                return any(
+                    child and self.dfs(child, word[i + 1 :])
+                    for child in node.children.values()
+                )
+
             if word[i] not in node.children:
                 return False
             else:

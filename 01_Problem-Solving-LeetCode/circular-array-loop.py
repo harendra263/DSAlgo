@@ -16,8 +16,8 @@ class Solution(object):
 
             slow, fast = i, i
             while nums[next_index(nums, slow)] * nums[i] > 0 and \
-                  nums[next_index(nums, fast)] * nums[i] > 0 and \
-                  nums[next_index(nums, next_index(nums, fast))] * nums[i] > 0:
+                      nums[next_index(nums, fast)] * nums[i] > 0 and \
+                      nums[next_index(nums, next_index(nums, fast))] * nums[i] > 0:
                 slow = next_index(nums, slow)
                 fast = next_index(nums, next_index(nums, fast))
                 if slow == fast:

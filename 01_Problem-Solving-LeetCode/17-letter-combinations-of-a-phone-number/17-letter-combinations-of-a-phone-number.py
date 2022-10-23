@@ -10,17 +10,17 @@ class Solution:
             "8": "tuv",
             "9": "wxyz",
         }
-        
+
         res = []
-        
+
         def dfs(i, curStr):
             if len(curStr) == len(digits):
                 res.append(curStr)
                 return
-            
+
             for ch in digitToChar[digits[i]]:
                 dfs(i+1, curStr + ch)
-            
+
         dfs(0, "")
-        return res if len(digits) != 0 else []
+        return res if digits != "" else []
         

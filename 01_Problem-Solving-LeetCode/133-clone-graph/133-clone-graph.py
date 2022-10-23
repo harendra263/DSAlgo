@@ -11,7 +11,7 @@ class Solution:
         if not node: return None
         d = {node : Node(node.val)}
         q = [node]
-        
+
         while q:
             curNode = q.pop(0)
             for nei in curNode.neighbors:
@@ -21,5 +21,5 @@ class Solution:
                     q.append(nei)
                 else:
                     d[curNode].neighbors.append(d[nei])
-        
+
         return d[node]

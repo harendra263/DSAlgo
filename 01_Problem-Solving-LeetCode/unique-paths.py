@@ -33,7 +33,7 @@ class Solution2(object):
             m, n  = n, m
 
         dp = [1]*n
-        for i in xrange(1, m):
+        for _ in xrange(1, m):
             for j in xrange(1, n):
                 dp[j] += dp[j-1]
         return dp[n-1]

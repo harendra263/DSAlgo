@@ -16,7 +16,7 @@ class Linkedlist:
         else:
             temp = self.head
             samir = self.head
-            for i in range(n-1):
+            for _ in range(n-1):
                 temp = temp.next
             while temp.next is not None:
                 temp = temp.next

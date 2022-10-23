@@ -14,7 +14,7 @@ class Solution(object):
             return False
         root, = roots
         stk = [root]
-        lookup = set([root])
+        lookup = {root}
         while stk:
             node = stk.pop()
             for c in (leftChild[node], rightChild[node]):

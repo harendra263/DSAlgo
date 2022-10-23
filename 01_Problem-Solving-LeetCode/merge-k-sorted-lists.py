@@ -8,7 +8,7 @@ class ListNode(object):
 
     def __repr__(self):		
         if self:		
-            return "{} -> {}".format(self.val, self.next)
+            return f"{self.val} -> {self.next}"
 
 
 # Merge two by two solution.
@@ -69,7 +69,7 @@ class Solution2(object):
             if begin == end:
                 return lists[begin]
             return mergeTwoLists(mergeKListsHelper(lists, begin, (begin + end) / 2), \
-                                 mergeKListsHelper(lists, (begin + end) / 2 + 1, end))
+                                     mergeKListsHelper(lists, (begin + end) / 2 + 1, end))
 
         return mergeKListsHelper(lists, 0, len(lists) - 1)
 

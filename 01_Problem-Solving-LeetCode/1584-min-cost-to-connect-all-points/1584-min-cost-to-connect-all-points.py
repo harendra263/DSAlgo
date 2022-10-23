@@ -9,7 +9,7 @@ class Solution:
                 dist = abs(x2 - x1) + abs(y2 - y1)
                 adjList[i].append((dist, j))
                 adjList[j].append((dist, i))
-        
+
         res = 0
         visited = set()
         minHeap = [(0, 0)]
@@ -21,5 +21,5 @@ class Solution:
             for d, p in adjList[point]:
                 if p not in visited:
                     heapq.heappush(minHeap, (d, p))
-        
+
         return res

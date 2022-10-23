@@ -7,7 +7,7 @@ class Solution(object):
     def partition(self, s):
         n = len(s)
 
-        is_palindrome = [[0 for j in xrange(n)] for i in xrange(n)]
+        is_palindrome = [[0 for _ in xrange(n)] for _ in xrange(n)]
         for i in reversed(xrange(0, n)):
             for j in xrange(i, n):
                 is_palindrome[i][j] = s[i] == s[j] and ((j - i < 2 ) or is_palindrome[i + 1][j - 1])
@@ -46,8 +46,5 @@ class Solution2(object):
                     cur.pop()
 
     def isPalindrome(self, s):
-        for i in xrange(len(s) / 2):
-            if s[i] != s[-(i + 1)]:
-                return False
-        return True
+        return all(s[i] == s[-(i + 1)] for i in xrange(len(s) / 2))
 

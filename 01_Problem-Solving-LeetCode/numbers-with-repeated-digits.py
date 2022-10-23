@@ -24,7 +24,7 @@ class Solution(object):
         # - XX
         for i in xrange(1, len(digits)):
             result += P(9, 1)*P(9, i-1)
-        
+
         # 2. count numbers without repeated digits:
         # - 1XX ~ 3XX
         # - 30X ~ 32X

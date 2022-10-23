@@ -55,31 +55,24 @@ class DoublyLL:
     
     def add_begin(self,data):
         new_node = Node(data)
-        if self.head is None:
-            self.head = new_node
-        else:
+        if self.head is not None:
             new_node.nref = self.head
             self.head.pref = new_node
-            self.head = new_node
+        self.head = new_node
 
     def add_after_node(self,data,x):
         new_node = Node(data)
         n = self.head
-        while n is not None:
-            if n.data ==x:
-                break
+        while n is not None and n.data != x:
             n = n.nref
         if n is None:
             print("We can't add after None Value, out of bound")
         else:
-            if n.nref is None:
-                n.nref = new_node
-                new_node.pref = n
-            else:
+            if n.nref is not None:
                 new_node.nref = n.nref
                 n.nref.pref = new_node
-                n.nref = new_node
-                new_node.pref = n
+            n.nref = new_node
+            new_node.pref = n
 
     def add_before_node(self,data,x):
         if self.head is None:
@@ -92,9 +85,7 @@ class DoublyLL:
             self.head = new_node            
             return
         n = self.head
-        while n.nref is not None:
-            if x == n.nref.data:
-                break
+        while n.nref is not None and x != n.nref.data:
             n = n.nref
         if n.nref is None:
             print("Given Node is not presnt in Linked List!")
@@ -109,7 +100,7 @@ class DoublyLL:
         if self.head is None:
             print("DLL is empty so can't delete")
             return
-        if self.head.nref == None:
+        if self.head.nref is None:
             self.head = None
             return
         else:
@@ -142,19 +133,16 @@ class DoublyLL:
             return
         else:
             n = self.head
-            while n.nref is not None:
-                if n.data == x:
-                    break
+            while n.nref is not None and n.data != x:
                 n = n.nref
             if n.nref is not None:
                 n.pref.nref = n.nref
                 n.nref = None
                 n.pref = None
+            elif n.data ==x:
+                n.pref.nref = None
             else:
-                if n.data ==x:
-                    n.pref.nref = None
-                else:
-                    print(f"Can't delete {x} as it is not present")
+                print(f"Can't delete {x} as it is not present")
 
 
 

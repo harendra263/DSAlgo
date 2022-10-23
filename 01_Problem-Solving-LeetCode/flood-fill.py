@@ -14,8 +14,8 @@ class Solution(object):
 
         def dfs(image, r, c, newColor, color):
             if not (0 <= r < len(image) and \
-                    0 <= c < len(image[0]) and \
-                    image[r][c] == color):
+                        0 <= c < len(image[0]) and \
+                        image[r][c] == color):
                 return
 
             image[r][c] = newColor

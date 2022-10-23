@@ -14,6 +14,5 @@ class Solution:
                 if L >= 3: return False
             else:
                 L = 0
-        
-        if count['A'] >= 2: return False
-        return True
+
+        return count['A'] < 2

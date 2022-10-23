@@ -16,9 +16,7 @@ class Solution(object):
             if s.find("<![CDATA[", i) != i:
                 return False, i
             j = s.find("]]>", i)
-            if j == -1:
-                return False, i
-            return True, j+3
+            return (False, i) if j == -1 else (True, j+3)
 
         def parseTagName(s, i):
             if s[i] != '<':
@@ -52,7 +50,7 @@ class Solution(object):
                 return False, i
             j = parseContent(s, j)
             k = j + len(tag) + 2
-            if k >= len(s) or s[j:k+1] != "</" + tag + ">":
+            if k >= len(s) or s[j : k + 1] != f"</{tag}>":
                 return False, i
             return True, k+1
 

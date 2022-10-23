@@ -13,7 +13,7 @@ class Solution(object):
             if not root.left and not root.right:
                 return root.val if is_left else 0
             return sumOfLeftLeavesHelper(root.left, True) + \
-                   sumOfLeftLeavesHelper(root.right, False)
+                       sumOfLeftLeavesHelper(root.right, False)
 
         return sumOfLeftLeavesHelper(root, False)
 

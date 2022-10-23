@@ -22,17 +22,14 @@ Examples:
 '''
 
 
+
 A =  "abcdefghijklmnopqrstuvwxyz"
 S = "dodiefjg"
 sum = 0
 previous = 0
 for i in range(len(S)):
     current = A.index(S[i])
-    if current >= previous:
-        sum += current - previous
-    else:
-        sum += previous - current
-
+    sum += current - previous if current >= previous else previous - current
     previous = current
 
 print(sum)

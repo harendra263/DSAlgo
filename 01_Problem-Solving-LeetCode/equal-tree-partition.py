@@ -14,8 +14,8 @@ class Solution(object):
             if not node:
                 return 0
             total = node.val + \
-                    getSumHelper(node.left, lookup) + \
-                    getSumHelper(node.right, lookup)
+                        getSumHelper(node.left, lookup) + \
+                        getSumHelper(node.right, lookup)
             lookup[total] += 1
             return total
 

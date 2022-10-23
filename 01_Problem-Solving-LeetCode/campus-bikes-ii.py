@@ -12,7 +12,7 @@ class Solution(object):  # this is slower than Solution2 in python
         """
         def manhattan(p1, p2):
             return abs(p1[0] - p2[0]) + abs(p1[1] - p2[1])
-        
+
         dp = [[float("inf")]*((1<<len(bikes))) for _ in xrange(2)]
         dp[0][0] = 0
         for i in xrange(len(workers)):
@@ -22,7 +22,7 @@ class Solution(object):  # this is slower than Solution2 in python
                     if taken & (1<<j):
                         continue
                     dp[(i+1)%2][taken|(1<<j)] = \
-                        min(dp[(i+1)%2][taken|(1<<j)],
+                            min(dp[(i+1)%2][taken|(1<<j)],
                             dp[i%2][taken] +
                             manhattan(workers[i], bikes[j]))
         return min(dp[len(workers)%2])
@@ -42,7 +42,7 @@ class Solution2(object):
         """
         def manhattan(p1, p2):
             return abs(p1[0] - p2[0]) + abs(p1[1] - p2[1])
-        
+
         min_heap = [(0, 0, 0)]
         lookup = set()
         while min_heap:

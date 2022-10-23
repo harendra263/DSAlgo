@@ -15,10 +15,7 @@ class Solution(object):
     def isSymmetric(self, root):
         if root is None:
             return True
-        stack = []
-        stack.append(root.left)
-        stack.append(root.right)
-
+        stack = [root.left, root.right]
         while stack:
             p, q = stack.pop(), stack.pop()
 
@@ -28,12 +25,7 @@ class Solution(object):
             if p is None or q is None or p.val != q.val:
                 return False
 
-            stack.append(p.left)
-            stack.append(q.right)
-
-            stack.append(p.right)
-            stack.append(q.left)
-
+            stack.extend((p.left, q.right, p.right, q.left))
         return True
 
 # Recursive solution
@@ -41,10 +33,7 @@ class Solution2(object):
     # @param root, a tree node
     # @return a boolean
     def isSymmetric(self, root):
-        if root is None:
-            return True
-
-        return self.isSymmetricRecu(root.left, root.right)
+        return True if root is None else self.isSymmetricRecu(root.left, root.right)
 
     def isSymmetricRecu(self, left, right):
         if left is None and right is None:

@@ -37,7 +37,7 @@ class Solution(object):
                 prefix.append(j)
                 node = node.next
             return pattern, prefix
-            
+
         def dfs(pattern, prefix, root, j):
             if not root:
                 return False
@@ -48,8 +48,8 @@ class Solution(object):
             if j+1 == len(pattern):
                 return True
             return dfs(pattern, prefix, root.left, j) or \
-                   dfs(pattern, prefix, root.right, j)
-        
+                       dfs(pattern, prefix, root.right, j)
+
         if not head:
             return True
         pattern, prefix = getPrefix(head)
@@ -69,16 +69,19 @@ class Solution2(object):
         def dfs(head, root):
             if not head:
                 return True
-            if not root:
-                return False
-            return root.val == head.val and \
-                   (dfs(head.next, root.left) or 
-                    dfs(head.next, root.right))
-    
+            return (
+                root.val == head.val
+                and (dfs(head.next, root.left) or dfs(head.next, root.right))
+                if root
+                else False
+            )
+
         if not head:
             return True
-        if not root:
-            return False
-        return dfs(head, root) or \
-               self.isSubPath(head, root.left) or \
-               self.isSubPath(head, root.right)
+        return (
+            dfs(head, root)
+            or self.isSubPath(head, root.left)
+            or self.isSubPath(head, root.right)
+            if root
+            else False
+        )

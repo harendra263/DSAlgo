@@ -10,7 +10,7 @@ class Solution:
             l = r + 1
             r = maxReachableIndex
             res += 1
-        
+
         return res
             
         

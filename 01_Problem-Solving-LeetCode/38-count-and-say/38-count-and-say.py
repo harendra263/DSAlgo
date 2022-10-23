@@ -1,7 +1,7 @@
 class Solution:
     def countAndSay(self, n: int) -> str:
         res = '1'
-        for i in range(n-1):
+        for _ in range(n-1):
             n = len(res)
             j = 0
             tmp = ''
@@ -15,5 +15,5 @@ class Solution:
                 j = k
                 tmp += str(count) + res[j-1]
             res = tmp
-        
+
         return res

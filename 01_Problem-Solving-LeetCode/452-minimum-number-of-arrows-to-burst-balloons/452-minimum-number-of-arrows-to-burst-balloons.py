@@ -8,5 +8,5 @@ class Solution:
             if p[0] > arrow:
                 res += 1
                 arrow = p[1]
-        
+
         return res

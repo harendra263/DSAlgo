@@ -8,12 +8,13 @@
 22    23    24    25    26    27    28    
 '''
 
+
 row = int(input("Enter the number of rows:   "))
 n = 1
 for i in range(row):
-    for j in range(row-i-1):
+    for _ in range(row-i-1):
         print(format(" ","<3"),end="")
-    for k in range(i+1):
+    for _ in range(i+1):
         print(format(n,"<6"),end="")
         n = n+1
     print()

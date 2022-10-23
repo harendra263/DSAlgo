@@ -6,7 +6,7 @@ class Solution(object):
     # @param word, a string
     # @return a boolean
     def exist(self, board, word):
-        visited = [[False for j in xrange(len(board[0]))] for i in xrange(len(board))]
+        visited = [[False for _ in xrange(len(board[0]))] for _ in xrange(len(board))]
 
         for i in xrange(len(board)):
             for j in xrange(len(board[0])):

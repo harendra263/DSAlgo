@@ -72,12 +72,17 @@ class Solution3(object):
         :type root2: TreeNode
         :rtype: bool
         """
-        if not root1 and not root2:
-            return True
-        if not root1 or not root2 or root1.val != root2.val:
-            return False
+        if root1 or root2:
+            return (
+                False
+                if not root1 or not root2 or root1.val != root2.val
+                else (
+                    self.flipEquiv(root1.left, root2.left)
+                    and self.flipEquiv(root1.right, root2.right)
+                    or self.flipEquiv(root1.left, root2.right)
+                    and self.flipEquiv(root1.right, root2.left)
+                )
+            )
 
-        return (self.flipEquiv(root1.left, root2.left) and
-                self.flipEquiv(root1.right, root2.right) or
-                self.flipEquiv(root1.left, root2.right) and
-                self.flipEquiv(root1.right, root2.left))
+        else:
+            return True

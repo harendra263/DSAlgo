@@ -15,7 +15,7 @@ class Solution(object):
                 if grid[r][c] == '*':
                     q.append((r, c))
                     break
-        
+
         result = 0
         while q:
             result += 1

@@ -11,10 +11,9 @@ class Solution(object):
         dp = [0]
         for t in xrange(1, target+1):
             dp.append(-1)
-            for i, c in enumerate(cost):
-                if t-c < 0 or dp[t-c] < 0:
-                    continue
-                dp[t] = max(dp[t], dp[t-c]+1)
+            for c in cost:
+                if t - c >= 0 and dp[t - c] >= 0:
+                    dp[t] = max(dp[t], dp[t-c]+1)
         if dp[target] < 0:
             return "0"
         result = []
@@ -36,7 +35,7 @@ class Solution2(object):
         """
         def key(bag):
             return sum(bag), bag
-        
+
         dp = [[0]*9]
         for t in xrange(1, target+1):
             dp.append([])
@@ -46,10 +45,8 @@ class Solution2(object):
                 curr = dp[t-c][:]
                 curr[~d] += 1
                 if key(curr) > key(dp[t]):
-                    dp[-1] = curr        
-        if not dp[-1]:
-            return "0"
-        return "".join(str(9-i)*c for i, c in enumerate(dp[-1]))
+                    dp[-1] = curr
+        return "".join(str(9-i)*c for i, c in enumerate(dp[-1])) if dp[-1] else "0"
 
 
 # Time:  O(t^2)

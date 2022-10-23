@@ -14,5 +14,5 @@ class Solution:
                 return False, 1 + max(lheight, rheight)
             else:
                 return True, 1 + max(lheight, rheight)
-        
+
         return dfs(root)[0]

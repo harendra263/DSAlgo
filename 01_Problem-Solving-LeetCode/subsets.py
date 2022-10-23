@@ -30,10 +30,7 @@ class Solution2(object):
         nums.sort()
 
         while i < count:
-            cur = []
-            for j in xrange(len(nums)):
-                if i & 1 << j:
-                    cur.append(nums[j])
+            cur = [nums[j] for j in xrange(len(nums)) if i & 1 << j]
             result.append(cur)
             i += 1
 
@@ -51,9 +48,11 @@ class Solution3(object):
         return self.subsetsRecu([], sorted(nums))
 
     def subsetsRecu(self, cur, nums):
-        if not nums:
-            return [cur]
-
-        return self.subsetsRecu(cur, nums[1:]) + self.subsetsRecu(cur + [nums[0]], nums[1:])
+        return (
+            self.subsetsRecu(cur, nums[1:])
+            + self.subsetsRecu(cur + [nums[0]], nums[1:])
+            if nums
+            else [cur]
+        )
 
 

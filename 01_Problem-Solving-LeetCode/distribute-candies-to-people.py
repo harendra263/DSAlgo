@@ -46,11 +46,11 @@ class Solution2(object):
         p = right
         remaining = candies - (p+1)*p//2
         rows, cols = divmod(p, num_people)
-        
+
         result = [0]*num_people
         for i in xrange(num_people):
             result[i] = (i+1)*(rows+1) + (rows*(rows+1)//2)*num_people if i < cols else \
-                        (i+1)*rows + ((rows-1)*rows//2)*num_people
+                            (i+1)*rows + ((rows-1)*rows//2)*num_people
         result[cols] += remaining
         return result
 

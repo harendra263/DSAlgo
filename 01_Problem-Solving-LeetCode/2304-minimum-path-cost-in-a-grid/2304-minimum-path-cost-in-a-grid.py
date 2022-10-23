@@ -20,10 +20,10 @@ class Solution:
     def deepcopy(self, arr):
         n = len(arr)
         m = len(arr[0])
-        new_arr = [[0]*m for i in range(n)]
-        
+        new_arr = [[0]*m for _ in range(n)]
+
         for i in range(n):
             for j in range(m):
                 new_arr[i][j] = arr[i][j]
-        
+
         return new_arr

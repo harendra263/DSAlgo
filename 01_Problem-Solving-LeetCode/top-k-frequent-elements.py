@@ -37,15 +37,10 @@ class Solution2(object):
         :rtype: List[int]
         """
         counts = collections.Counter(nums)
-        p = []
-        for key, val in counts.iteritems():
-            p.append((-val, key))
+        p = [(-val, key) for key, val in counts.iteritems()]
         self.kthElement(p, k-1)
 
-        result = []
-        for i in xrange(k):
-            result.append(p[i][1])
-        return result
+        return [p[i][1] for i in xrange(k)]
 
     def kthElement(self, nums, k):
         def PartitionAroundPivot(left, right, pivot_idx, nums):

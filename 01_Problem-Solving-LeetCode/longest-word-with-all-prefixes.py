@@ -23,7 +23,7 @@ class Solution(object):
                         continue
                     stk.append(node[c])
             return result       
-    
+
         _trie = lambda: collections.defaultdict(_trie)
         trie = _trie()
         trie["_end"] = -1
@@ -52,7 +52,7 @@ class Solution2(object):
                 if c not in node or "_end" not in node[c]:
                     continue
                 dfs(words, node[c], result)
-    
+
         _trie = lambda: collections.defaultdict(_trie)
         trie = _trie()
         trie["_end"] = -1

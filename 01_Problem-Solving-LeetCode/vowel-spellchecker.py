@@ -8,7 +8,7 @@ class Solution(object):
         :type queries: List[str]
         :rtype: List[str]
         """
-        vowels = set(['a', 'e', 'i', 'o', 'u'])
+        vowels = {'a', 'e', 'i', 'o', 'u'}
         def todev(word):
             return "".join('*' if c.lower() in vowels else c.lower()
                            for c in word)
@@ -28,7 +28,6 @@ class Solution(object):
             if lower in caps:
                 return caps[lower]
             devow = todev(lower)
-            if devow in vows:
-                return vows[devow]
-            return ""
+            return vows[devow] if devow in vows else ""
+
         return map(check, queries)

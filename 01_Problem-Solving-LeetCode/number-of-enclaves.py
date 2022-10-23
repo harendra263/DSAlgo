@@ -14,7 +14,7 @@ class Solution(object):
             A[i][j] = 0
             for d in directions:
                 dfs(A, i+d[0], j+d[1])
-        
+
         for i in xrange(len(A)):
             dfs(A, i, 0)
             dfs(A, i, len(A[0])-1)

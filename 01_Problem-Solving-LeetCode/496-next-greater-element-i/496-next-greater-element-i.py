@@ -14,5 +14,5 @@ class Solution:
                 res.append(ngeDict[i])
             else:
                 res.append(-1)
-        
+
         return res

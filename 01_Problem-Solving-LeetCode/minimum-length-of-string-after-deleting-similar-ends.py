@@ -8,16 +8,10 @@ class Solution(object):
         :rtype: int
         """
         left, right = 0, len(s)-1
-        while left < right:
-            if s[left] != s[right]:
-                break
+        while left < right and s[left] == s[right]:
             c = s[left]
-            while left <= right:
-                if s[left] != c:
-                    break
+            while left <= right and c == c:
                 left += 1
-            while left <= right:
-                if s[right] != c:
-                    break
+            while left <= right and s[right] == c:
                 right -= 1
         return right-left+1

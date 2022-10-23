@@ -6,15 +6,13 @@ class Solution:
                 ds[i] = 1
             else:
                 ds[i] += 1
-        
+
         dt = {}
         for i in t:
             if i not in dt:
                 dt[i] = 1
             else:
                 dt[i] += 1
-        
+
         for i in dt:
-            if i not in ds: return i
-            else:
-                if dt[i] > ds[i]: return i
+            if i in ds and dt[i] > ds[i] or i not in ds: return i

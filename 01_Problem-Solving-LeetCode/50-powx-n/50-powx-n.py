@@ -10,6 +10,5 @@ class Solution:
             else:
                 res *= x
                 p -= 1
-        
-        if n < 0: return 1 / res
-        return res
+
+        return 1 / res if n < 0 else res

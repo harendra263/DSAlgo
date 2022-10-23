@@ -10,10 +10,8 @@ class Solution(object):
         MOD = 10**9+7
 
         prefix = [0]
-        for x in nums:
-            prefix.append(prefix[-1]+x)
-
-        result = left = right = 0 
+        prefix.extend(prefix[-1]+x for x in nums)
+        result = left = right = 0
         for i in xrange(len(nums)): 
             left = max(left, i+1)
             while left+1 < len(nums) and prefix[i+1] > prefix[left+1]-prefix[i+1]:

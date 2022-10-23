@@ -15,7 +15,7 @@ class Solution(object):
             adj[prev-1].append(nxt-1)
             in_degree[nxt-1] += 1
         q = [u for u in xrange(n) if not in_degree[u]]
-        dist = [time[u] if not in_degree[u] else 0 for u in xrange(n)] 
+        dist = [0 if in_degree[u] else time[u] for u in xrange(n)]
         while q:
             new_q = []
             for u in q:

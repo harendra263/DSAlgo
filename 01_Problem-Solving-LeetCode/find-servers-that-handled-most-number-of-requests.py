@@ -26,7 +26,10 @@ class Solution(object):
                     heapq.heappush(min_heap_of_nodes_before_curr, free)
                 else:
                     heapq.heappush(min_heap_of_nodes_after_curr, free)
-            min_heap_of_candidates = min_heap_of_nodes_after_curr if min_heap_of_nodes_after_curr else min_heap_of_nodes_before_curr
+            min_heap_of_candidates = (
+                min_heap_of_nodes_after_curr or min_heap_of_nodes_before_curr
+            )
+
             if not min_heap_of_candidates:
                 continue
             node = heapq.heappop(min_heap_of_candidates)

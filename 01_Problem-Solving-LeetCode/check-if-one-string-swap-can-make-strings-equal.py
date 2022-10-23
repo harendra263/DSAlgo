@@ -17,5 +17,5 @@ class Solution(object):
                 continue
             if len(diff) == 2:
                 return False
-            diff.append([a, b] if not diff else [b, a])
+            diff.append([b, a] if diff else [a, b])
         return not diff or (len(diff) == 2 and diff[0] == diff[1])

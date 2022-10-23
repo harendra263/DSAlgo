@@ -3,7 +3,7 @@ class Solution:
         row = {i:set() for i in range(9)}
         col = {j:set() for j in range(9)}
         subbox = {(i//3, j//3): set() for j in range(9) for i in range(9)}
-        
+
         for i in range(9):
             for j in range(9):
                 cur = board[i][j]
@@ -15,5 +15,5 @@ class Solution:
                 key = (i//3, j//3)
                 if cur in subbox[key]: return False
                 subbox[key].add(cur)
-        
+
         return True

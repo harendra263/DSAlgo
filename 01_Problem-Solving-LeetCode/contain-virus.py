@@ -17,7 +17,7 @@ class Solution(object):
             for d in directions:
                 nr, nc = r+d[0], c+d[1]
                 if not (0 <= nr < len(grid) and \
-                        0 <= nc < len(grid[r])):
+                            0 <= nc < len(grid[r])):
                     continue
                 if grid[nr][nc] == 1:
                     dfs(grid, nr, nc, lookup, regions, frontiers, perimeters)
@@ -49,7 +49,7 @@ class Solution(object):
                     for d in directions:
                         nr, nc = r+d[0], c+d[1]
                         if not (0 <= nr < len(grid) and \
-                                0 <= nc < len(grid[r])):
+                                    0 <= nc < len(grid[r])):
                             continue
                         if grid[nr][nc] == 0:
                             grid[nr][nc] = 1

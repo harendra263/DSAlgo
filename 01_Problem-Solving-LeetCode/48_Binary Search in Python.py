@@ -10,7 +10,7 @@ def BinerySearch(l,key):
             high = mid -1
         else:
             low = mid + 1
-    if found == True:
+    if found:
         print("The value is found.")
     else:
         print("Value is not found!")

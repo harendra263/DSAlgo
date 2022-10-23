@@ -11,5 +11,5 @@ class Solution:
                 res += boxTypes[i][1] * boxTypes[i][0]
                 truckSize -= boxTypes[i][0]
                 i += 1
-        
+
         return res

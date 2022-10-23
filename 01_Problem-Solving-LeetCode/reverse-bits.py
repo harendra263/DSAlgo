@@ -20,7 +20,7 @@ class Solution2(object):
     # @return an integer
     def reverseBits(self, n):
         result = 0
-        for i in xrange(32):
+        for _ in xrange(32):
             result <<= 1
             result |= n & 1
             n >>= 1

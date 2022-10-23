@@ -18,11 +18,11 @@ class Linkedlist:
     def add_begin(self,data):
         if self.head is None:
             new_node = Node(data)
-            self.head = new_node
         else:
             new_node = Node(data)
             new_node.next = self.head
-            self.head = new_node
+
+        self.head = new_node
 
     def add_end(self,data):
         if self.head is None:
@@ -39,9 +39,7 @@ class Linkedlist:
             print("Can Not add as LL is Empty")
         else:
             tem = self.head
-            while tem.next is not None:
-                if tem.data == x:
-                    break
+            while tem.next is not None and tem.data != x:
                 tem = tem.next
             if tem.next is None:
                 print(f"Enter data {x} is out of bound!")
@@ -52,12 +50,10 @@ class Linkedlist:
     
     def before_node(self,x,data):
         if self.head is None:
-            print("Can Not add as LL is Empty") 
+            print("Can Not add as LL is Empty")
         else:
             tem = self.head
-            while tem.next is not None:
-                if tem.next.data == x:
-                    break
+            while tem.next is not None and tem.next.data != x:
                 tem = tem.next
             if tem.next is None:
                 print(f"Enter data {x} is out of bound!!!")
@@ -69,14 +65,12 @@ class Linkedlist:
 # Delete by Value of a Nodde
     def delete_by_value(self,x):
         if self.head is None:
-            print("Can Not add as LL is Empty") 
+            print("Can Not add as LL is Empty")
         elif self.head.data ==x:
             self.head = self.head.next
         else:
             tem = self.head
-            while tem.next is not None:
-                if tem.next.data ==x:
-                    break
+            while tem.next is not None and tem.next.data != x:
                 tem = tem.next
             if tem.next is None:
                 print(f"Entered value {x} is Not found!!!!") 
@@ -103,9 +97,7 @@ class Linkedlist:
             print("The LL is Empty so can not be deleted!!!!")
         else:
             tem = self.head
-            while tem.next is not None:
-                if tem.data ==x:
-                    break
+            while tem.next is not None and tem.data != x:
                 tem = tem.next
             if tem.next is None:
                 print(f"The given value {x} is out of bound!!!!!!!!!!!!!!!!!!!!!!!")
